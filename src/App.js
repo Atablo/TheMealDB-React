@@ -1,10 +1,15 @@
+import { Route, Routes } from 'react-router-dom';
+import Posts from './pages/Posts';
+import Post from "./pages/Post";
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>It Works</h1>
+    <div>
+      <Routes>
+        <Route exact path="/" element={<Posts />} />
+        <Route path="/posts/:id" element={<Post />} />
+      </Routes>
     </div>
   );
 }
