@@ -4,11 +4,13 @@ import Home from './Componentes/Home';
 import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
+import Header from './Componentes/Header/Header';
 
 function App() {
   return (
     <div className="App">
       <header>
+        <Header />
         <nav>
           <ul>
             <li><Link to="/searchPage">SearchPage</Link></li>
