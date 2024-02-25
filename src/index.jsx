@@ -1,32 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { StrictMode, React } from 'react';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-// import Principal from './Componentes/Principal';
-// import Error from './Componentes/Error';
-// import Search from './Componentes/Search';
-// import Detalles from './Componentes/Detalles';
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Principal />,
-//     errorElement: <Error />,
-//     children: [{
-//       path: "/searchByName",
-//       element: <Search />,
-//     },
+import App from './App';
 
-//     ],
-//   },
-//   {
-//     path: "/detalles",
-//     element: <Detalles />
-//   }
-// ]);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  // Así toda la aplicación estará envuelta con BrowserRouter
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>,
 
-// eslint-disable-next-line react/no-deprecated
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter />
-  </React.StrictMode>,
 );
