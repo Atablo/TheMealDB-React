@@ -28,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
+        <Route path="/searchByName" element={<SearchPage />} />
         <Route path="/tacos/:nombreDelTaco" element={<Tacos />}>
           <Route path="details" element={<TacoDetails />} />
         </Route>
