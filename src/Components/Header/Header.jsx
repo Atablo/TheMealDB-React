@@ -18,7 +18,7 @@ export default function Header() {
           <div className="flex-column w-40 py-2">
             <Link to="/searchByName" className="">
               <div className="d-grid gap-2 flex-column w-40 py-2">
-                <button type="button" name="" id="" className="btn btn-light">
+                <button type="button" name="" id="" className="btn btn-light btn-e">
                   Search a meal by name
                 </button>
               </div>
