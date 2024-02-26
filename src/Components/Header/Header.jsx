@@ -16,16 +16,19 @@ export default function Header() {
             />
           </Link>
 
-          <div className="d-grid gap-2">
-            <button
-              type="button"
-              name=""
-              id=""
-              className="btn btn-primary"
-            >
-              Button
-            </button>
-          </div>
+          <Link to="/searchByIngredient">
+            <div className="d-grid gap-2">
+              <button
+                type="button"
+                name=""
+                id=""
+                className="btn btn-light"
+              >
+                Search a meal by name
+              </button>
+            </div>
+
+          </Link>
 
           <button
             className="navbar-toggler d-lg-none text-light bg-light"
