@@ -3,8 +3,8 @@ const urlComidas = 'https://www.themealdb.com/api/json/v1/1/search.php';
 const urlFotoIngredientes = 'https://www.themealdb.com/images/ingredients/';
 const listCategories = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
 
-// arrays para ver la correspondencia entre  la abreviación del pais y 
-//la abreviación de las banderas según la API
+// arrays para ver la correspondencia entre  la abreviación del pais y
+// la abreviación de las banderas según la API
 const region = [
   'British',
   'American',
@@ -42,39 +42,39 @@ const region = [
 ];
 
 const countryFlags = [
-  'gb',
   'us',
-  'fr',
+  'dz',
+  'ar',
+  'sa',
+  'gb',
   'ca',
-  'jm',
   'cn',
+  'hr',
   'nl',
   'eg',
+  'ph',
+  'fr',
   'gr',
   'in',
   'ie',
   'it',
+  'jm',
   'jp',
   'ke',
   'my',
   'mx',
   'ma',
-  'hr',
   'no',
+  'pl',
   'pt',
   'ru',
-  'ar',
-  'es',
   'sk',
-  'th',
-  'sa',
-  'vn',
-  'tr',
+  'es',
   'sy',
-  'dz',
+  'th',
   'tn',
-  'pl',
-  'ph',
+  'tr',
+  'vn',
 ];
 
 /// //////////////////////////////////////////Busqueda por nombre///////////////////////////////
