@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function RecipeList() {
   const [recipes, setRecipes] = useState([]);
@@ -26,7 +27,7 @@ export default function RecipeList() {
     <div className="container">
       <div className="row">
         {recipes.map((recipe) => (
-          <a key={recipe.idMeal} href={recipe.strSource} target="_blank" rel="noreferrer" className="text-decoration-none">
+          <Link key={recipe.idMeal} href={recipe.strSource} target="_blank" rel="noreferrer" className="text-decoration-none">
             <div className="card">
               <div className="row">
                 <div className="col-sm-4">
@@ -65,7 +66,7 @@ export default function RecipeList() {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

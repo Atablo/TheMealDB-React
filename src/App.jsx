@@ -5,7 +5,7 @@ import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
-import RecipeList from './Components/Meal/RecipeList';
+import RecipeList from './Componentes/RecipeList';
 
 function App() {
   return (

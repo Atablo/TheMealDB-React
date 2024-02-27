@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from './Meal';
+import Card from '../Components/Meal/Meal';
 
 export default function RecipeList() {
   const [recipes, setRecipes] = useState([]);
