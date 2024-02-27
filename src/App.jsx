@@ -5,6 +5,7 @@ import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
+import Card from './Components/Card/Card';
 
 function App() {
   return (
@@ -25,7 +26,9 @@ function App() {
       <p>Mi aplicación de react</p>
 
       {/* Esto de abajo no está "pintado,son solo indicaciones de las rutas" */}
+      
       <Routes>
+      
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
         <Route path="/searchByName" element={<SearchPage />} />
@@ -40,7 +43,7 @@ function App() {
             </h1>
           )}
         />
-      </Routes>
+      </Routes><Card />
     </div>
   );
 }
