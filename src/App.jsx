@@ -5,7 +5,7 @@ import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
-import Card from './Components/Card/Card';
+import RecipeList from './Components/Meal/RecipeList';
 
 function App() {
   return (
@@ -24,11 +24,7 @@ function App() {
         </nav>
       </header>
       <p>Mi aplicación de react</p>
-
-      {/* Esto de abajo no está "pintado,son solo indicaciones de las rutas" */}
-      
       <Routes>
-      
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
         <Route path="/searchByName" element={<SearchPage />} />
@@ -39,11 +35,12 @@ function App() {
           path="*"
           element={(
             <h1>
-              Lo sentimos!! no hemos encontrado la ruta que has específicado
+              Lo sentimos!! no hemos encontrado la ruta que has especificado
             </h1>
           )}
         />
-      </Routes><Card />
+      </Routes>
+      <RecipeList />
     </div>
   );
 }
