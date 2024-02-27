@@ -5,6 +5,8 @@ import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
+import SearchByIngredient from './Componentes/SearchByIngredient';
+import Meal from './Components/Meal/Meal';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
         <Route path="/searchByName" element={<SearchPage />} />
+        <Route path="/searchByIngredient" element={<SearchByIngredient />} />
+        <Route path="/meal/:id" element={<Meal />} />
         <Route path="/tacos/:nombreDelTaco" element={<Tacos />}>
           <Route path="details" element={<TacoDetails />} />
         </Route>
