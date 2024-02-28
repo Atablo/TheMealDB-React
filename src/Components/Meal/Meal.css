@@ -2,9 +2,7 @@
     width: 450px;
 }
 
-body {
-    background-color: #2f2f2f;
-}
+
 
 .center-text {
     text-align: center;
@@ -12,4 +10,9 @@ body {
 
 a{
     text-decoration: none;
+}
+
+body{
+     background-image: url(pepperbg.jpg); 
+    /* background-color: rgb(105, 53, 8); */
 }

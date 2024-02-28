@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Components/Meal/Meal';
+import '../Components/Meal/Meal.css';
 
 export default function RecipeList() {
   const [recipes, setRecipes] = useState([]);
@@ -30,13 +31,15 @@ export default function RecipeList() {
   }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        {recipes.map((recipe) => (
-          <div key={recipe.id} className="col-md-6 mb-4">
-            <Card recipe={recipe.data} />
-          </div>
-        ))}
+    <div className="bg-img">
+      <div className="container">
+        <div className="row">
+          {recipes.map((recipe) => (
+            <div key={recipe.id} className="col-md-6 mb-4">
+              <Card recipe={recipe.data} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
