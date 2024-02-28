@@ -5,7 +5,7 @@ import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
-import RecipeList from './Componentes/RecipeList';
+import MealList from './Componentes/MealList';
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
           )}
         />
       </Routes>
-      <RecipeList />
+      <MealList />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../Components/Meal/Meal';
 import '../Components/Meal/Meal.css';
 
-export default function RecipeList() {
+export default function MealList() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
