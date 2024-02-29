@@ -5,7 +5,7 @@ import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
-import SearchByIngredient from './Componentes/SearchByIngredient';
+import SearchByIngredient from './Componentes/SearchByIngredient/SearchByIngredient';
 import Meal from './Components/Meal/Meal';
 
 function App() {
@@ -38,11 +38,11 @@ function App() {
         </Route>
         <Route
           path="*"
-          element={(
+          element={
             <h1>
               Lo sentimos!! no hemos encontrado la ruta que has específicado
             </h1>
-          )}
+          }
         />
       </Routes>
     </div>
