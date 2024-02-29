@@ -1,23 +1,23 @@
 // Declaro las variables del input y del botón para la busqueda de los ingredientes
-const nombreIngrediente = document.querySelector('#nombreIngrediente');
-const busquedaIngrediente = document.querySelector('#searchByIngredient');
+// const nombreIngrediente = document.querySelector('#nombreIngrediente');
+// const busquedaIngrediente = document.querySelector('#searchByIngredient');
 
 // Declaro las variables para luego pintar los platos en estos
-const plantillaCard = document.querySelector('#meal').content;
-const divCards = document.querySelector('#results');
+// const plantillaCard = document.querySelector('#meal').content;
+// const divCards = document.querySelector('#results');
 
 // Variable para almacenar las options del datalist
-const datalistOptions = document.querySelector('#datalistOptions');
+// const datalistOptions = document.querySelector('#datalistOptions');
 
 // url de los platos de la API
 const urlIngredients = 'https://www.themealdb.com/api/json/v1/1/';
 const listIngredients = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
 
 // Variable que incluirá en nombre de ingrediente que usaremos más tarde
-let nombreIngrediente2;
+// let nombreIngrediente2;
 
 // Array de paises
-const regiones = [
+export const regiones = [
   'British',
   'American',
   'French',
@@ -54,7 +54,7 @@ const regiones = [
 ];
 
 // Array del código de paises
-const banderaPaises = [
+export const banderaPaises = [
   'gb',
   'us',
   'fr',
@@ -91,7 +91,7 @@ const banderaPaises = [
 ];
 
 // Array de etiquetas
-const etiquetas = [
+export const etiquetas = [
   'Rice',
   'Sidedish',
   'Speciality',
@@ -158,8 +158,10 @@ const etiquetas = [
 /// ///////////////////////////////////////////////////////////////////////////////////////
 
 // Función asíncrona para obtener los platos por nombre
-async function getIngredientsByName(name) {
-  // Creamos una variable que sea igual a "urlIngredients" + "filter.php?i=" + el nombre que introduzca el usuario
+
+export async function getIngredientsByName(name) {
+  // Creamos una variable que sea igual a "urlIngredients"
+  // + "filter.php?i=" + el nombre que introduzca el usuario
   const urlFetch = `${urlIngredients}filter.php?i=${name}`;
   // Response coge el argumento que le pasamos y contiene la respuesta
   const response = await fetch(urlFetch);
@@ -170,7 +172,7 @@ async function getIngredientsByName(name) {
 }
 
 // Función asíncrona para obtener todos los ingrendientes
-async function getAllIngredients() {
+export async function getAllIngredients() {
   // Creamos una variable que sea igual a "listIngredients"
   const urlFetch = listIngredients;
   // Response coge el argumento que le pasamos y contiene la respuesta
@@ -182,7 +184,7 @@ async function getAllIngredients() {
 }
 
 // Función asíncrona para obtener los platos aleatoriamente
-async function showRandomMeals() {
+export async function showRandomMeals() {
   // Creamos una variable que sea igual a la url de la API que nos muestra un plato aleatorio
   const urlFetch = 'https://www.themealdb.com/api/json/v1/1/random.php';
   // Response coge el argumento que le pasamos y contiene la respuesta
