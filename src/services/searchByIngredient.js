@@ -11,8 +11,7 @@
 
 // url de los platos de la API
 const urlIngredients = 'https://www.themealdb.com/api/json/v1/1/';
-const listIngredients =
-  'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
+const listIngredients = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
 const urlComidas = 'https://www.themealdb.com/api/json/v1/1/search.php';
 
 // Variable que incluirá en nombre de ingrediente que usaremos más tarde

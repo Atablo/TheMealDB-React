@@ -5,8 +5,6 @@ import { getIngredientsByName } from '../../services/searchByIngredient';
 export default function CardMealsByIngredient({ onNameIngredient }) {
   const [cardMeals, setCardMeals] = useState([]);
 
-  console.log(onNameIngredient);
-
   useEffect(() => {
     getIngredientsByName(onNameIngredient).then((meals) => {
       // Por cada array meals del objeto meals:
@@ -17,13 +15,16 @@ export default function CardMealsByIngredient({ onNameIngredient }) {
 
   return (
     <div>
-      {cardMeals.map((meal) => (
-        <li key={meal.strMeal}>{meal.strMeal}</li>
-      ))}
+      {onNameIngredient
+        && cardMeals.map((meal) => <li key={meal.idMeal}>{meal.strMeal}</li>)}
     </div>
   );
 }
 
 CardMealsByIngredient.propTypes = {
-  onNameIngredient: PropTypes.func.isRequired,
+  onNameIngredient: PropTypes.string,
+};
+
+CardMealsByIngredient.defaultProps = {
+  onNameIngredient: '',
 };
