@@ -8,7 +8,7 @@ import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
 import MealDetails from './Components/MealDetails/MealDetails';
-import SearchByIngredient from './Componentes/SearchByIngredient';
+import SearchByIngredient from './Components/IngredientPage/SearchByIngredient';
 import SearchByName from './Componentes/SearchByName';
 
 function App() {
