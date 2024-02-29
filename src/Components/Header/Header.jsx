@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 
 export default function Header() {
   return (

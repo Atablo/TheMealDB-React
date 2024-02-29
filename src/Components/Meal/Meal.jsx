@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export default function Meal({ recipe }) {
   return (
-    <Link to={recipe.strSource} target="_blank" rel="noreferrer" className="text-decoration-none">
+    <Link to={`/meal/${recipe.idMeal}`} className="text-decoration-none">
       <div className="card">
         <div className="row">
           <div className="col-sm-6">
@@ -56,5 +56,6 @@ Meal.propTypes = {
     strArea: PropTypes.string,
     strAreaThumb: PropTypes.string,
     strTags: PropTypes.string,
+    idMeal: PropTypes.string.isRequired, 
   }).isRequired,
 };

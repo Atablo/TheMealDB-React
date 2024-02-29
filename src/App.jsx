@@ -1,13 +1,24 @@
-import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import {
+  Link, Route, Routes, useNavigate,
+} from 'react-router-dom';
 import Home from './Componentes/Home';
 import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
-import MealList from './Componentes/MealList';
+import MealDetails from './Components/MealDetails/MealDetails';
 
 function App() {
+  const [selectedMeal, setSelectedMeal] = useState(null);
+  const navigate = useNavigate();
+
+  // Manejador de clic en la tarjeta de la comida
+  const handleMealClick = (meal) => {
+    setSelectedMeal(meal);
+    navigate(`/meal/${meal.idMeal}`);
+  };
+
   return (
     <div className="App">
       <header>
@@ -28,9 +39,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
         <Route path="/searchByName" element={<SearchPage />} />
-        <Route path="/tacos/:nombreDelTaco" element={<Tacos />}>
-          <Route path="details" element={<TacoDetails />} />
-        </Route>
+        <Route
+          path="/meal/:id"
+          element={<MealDetails mealData={selectedMeal} />}
+        />
+        <Route path="/tacos/:idMeal/details" element={<TacoDetails />} />
+        <Route path="/tacos/:nombreDelTaco" element={<Tacos onMealClick={handleMealClick} />} />
         <Route
           path="*"
           element={(
@@ -40,7 +54,6 @@ function App() {
           )}
         />
       </Routes>
-      <MealList />
     </div>
   );
 }

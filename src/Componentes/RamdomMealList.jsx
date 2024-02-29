@@ -3,7 +3,7 @@ import Card from '../Components/Meal/Meal';
 import { showRandomMeals } from '../services/searchByIngredient';
 import '../Components/Meal/Meal.css';
 
-export default function MealList() {
+export default function RamdomMealList() {
   const [recipes, setRecipes] = useState([]); // Estado para almacenar los platos de comida
 
   useEffect(() => {
@@ -39,7 +39,6 @@ export default function MealList() {
   return (
     <div className="bg-img">
       <div className="container">
-
         <div className="row">
           {recipes.map((recipe) => (
             <div key={recipe.id} className="col-md-6 mb-4">
