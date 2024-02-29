@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Error from '../../Componentes/Error';
 
 function MealDetails() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ function MealDetails() {
   }, [id]);
 
   if (!mealData) {
-    return <div>Loading...</div>; // Add a loading indicator while fetching data
+    return <Error />;
   }
 
   // Extract ingredients and measures
@@ -100,7 +101,7 @@ function MealDetails() {
           </p>
           <div className="w-75 mx-auto mt-4">
             <div className="embed-responsive ratio ratio-16x9 mb-3">
-              <iframe className="embed-responsive-item" src={mealData.strYoutube} title="Meal Video" allowFullScreen />
+              <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${mealData.strYoutube.split('v=')[1]}`} title="Meal Video" allowFullScreen />
             </div>
           </div>
         </div>

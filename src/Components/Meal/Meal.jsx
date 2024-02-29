@@ -56,6 +56,6 @@ Meal.propTypes = {
     strArea: PropTypes.string,
     strAreaThumb: PropTypes.string,
     strTags: PropTypes.string,
-    idMeal: PropTypes.string.isRequired, 
+    idMeal: PropTypes.string.isRequired,
   }).isRequired,
 };

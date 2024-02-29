@@ -34,7 +34,6 @@ function App() {
           </ul>
         </nav>
       </header>
-      <p>Mi aplicación de react</p>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
