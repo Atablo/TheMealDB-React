@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Declaro las variables del input y del botón para la busqueda de los ingredientes
 const nombreIngrediente = document.querySelector('#nombreIngrediente');
 const busquedaIngrediente = document.querySelector('#searchByIngredient');

@@ -1,46 +1,83 @@
+// eslint-disable-next-line max-len
 // Ponemos todos los url necesarios para construir los diferentes url más tarde a los que haremos fetch
 const urlComidas = 'https://www.themealdb.com/api/json/v1/1/search.php';
+// eslint-disable-next-line no-unused-vars
 const urlFotoIngredientes = 'https://www.themealdb.com/images/ingredients/';
 const listCategories = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list';
 
 // arrays para ver la correspondencia entre  la abreviación del pais y
 // la abreviación de las banderas según la API
+// eslint-disable-next-line no-unused-vars
 const region = [
-  'British',
-  'American',
-  'French',
-  'Canadian',
-  'Jamaican',
-  'Chinese',
-  'Dutch',
-  'Egyptian',
-  'Greek',
-  'Indian',
-  'Irish',
-  'Italian',
-  'Japanese',
-  'Kenyan',
-  'Malaysian',
-  'Mexican',
-  'Moroccan',
-  'Croatian',
-  'Norwegian',
-  'Portuguese',
-  'Russian',
-  'Argentinian',
-  'Spanish',
-  'Slovakian',
-  'Thai',
-  'Arabian',
-  'Vietnamese',
-  'Turkish',
-  'Syrian',
-  'Argelian',
-  'Tunisian',
-  'Polish',
-  'Filipino',
-];
 
+  'American',
+
+  'Argelian',
+
+  'Argentinian',
+
+  'Arabian',
+
+  'British',
+
+  'Canadian',
+
+  'Chinese',
+
+  'Croatian',
+
+  'Dutch',
+
+  'Egyptian',
+
+  'Filipino',
+
+  'French',
+
+  'Greek',
+
+  'Indian',
+
+  'Irish',
+
+  'Italian',
+
+  'Jamaican',
+
+  'Japanese',
+
+  'Kenyan',
+
+  'Malaysian',
+
+  'Mexican',
+
+  'Moroccan',
+
+  'Norwegian',
+
+  'Polish',
+
+  'Portuguese',
+
+  'Russian',
+
+  'Slovakian',
+
+  'Spanish',
+
+  'Syrian',
+
+  'Thai',
+
+  'Tunisian',
+
+  'Turkish',
+
+  'Vietnamese',
+
+];
+// eslint-disable-next-line no-unused-vars
 const countryFlags = [
   'us',
   'dz',
