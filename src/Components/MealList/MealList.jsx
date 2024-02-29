@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import Meal from '../Meal/Meal';
 
 export default function MealList({ mealsToPrint }) {
@@ -22,13 +23,13 @@ MealList.propTypes = {
   mealsToPrint: PropTypes.arrayOf(
     PropTypes.shape({
       strSource: PropTypes.string,
-    strMealThumb: PropTypes.string,
-    strMeal: PropTypes.string,
-    strCategory: PropTypes.string,
-    strArea: PropTypes.string,
-    strAreaThumb: PropTypes.string,
-    strTags: PropTypes.string,
-    idMeal: PropTypes.string.isRequired,
+      strMealThumb: PropTypes.string,
+      strMeal: PropTypes.string,
+      strCategory: PropTypes.string,
+      strArea: PropTypes.string,
+      strAreaThumb: PropTypes.string,
+      strTags: PropTypes.string,
+      idMeal: PropTypes.string.isRequired,
     }),
   ).isRequired, // Asegura que mealsToPrint sea un array y sea obligatorio
 };
