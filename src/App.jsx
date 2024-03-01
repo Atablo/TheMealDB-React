@@ -7,7 +7,7 @@ import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
 import SearchByIngredient from './Componentes/SearchByIngredient';
 import Meal from './Components/Meal/Meal';
-import SearchByName from './Componentes/SearchByName';
+import SearchByName from './Components/SearchByName/SearchByName';
 
 function App() {
   return (
