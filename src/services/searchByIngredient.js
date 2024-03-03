@@ -1,15 +1,5 @@
 /* eslint-disable no-unused-vars */
 // Declaro las variables del input y del botón para la busqueda de los ingredientes
-const nombreIngrediente = document.querySelector('#nombreIngrediente');
-const busquedaIngrediente = document.querySelector('#searchByIngredient');
-
-// Declaro las variables para luego pintar los platos en estos
-const plantillaCard = document.querySelector('#meal').content;
-const divCards = document.querySelector('#results');
-
-// Variable para almacenar las options del datalist
-const datalistOptions = document.querySelector('#datalistOptions');
-
 // url de los platos de la API
 const urlIngredients = 'https://www.themealdb.com/api/json/v1/1/';
 const listIngredients = 'https://www.themealdb.com/api/json/v1/1/list.php?i=list';
@@ -92,7 +82,7 @@ const banderaPaises = [
 ];
 
 // Array de etiquetas
-const etiquetas = [
+export const etiquetas = [
   'Rice',
   'Sidedish',
   'Speciality',

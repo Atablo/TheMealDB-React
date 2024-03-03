@@ -3,6 +3,7 @@ import { CiSearch } from 'react-icons/ci';
 import { getMealsByName } from '../../services/searchByName';
 import MealList from '../MealList/MealList';
 import SearchResultsInfo from '../SearchResultsInfo/SearchResultsInfo';
+import FiltersBox from '../FiltersBox/FiltersBox';
 
 export default function SearchByName() {
   const [formField, setFormField] = useState();
@@ -48,15 +49,25 @@ export default function SearchByName() {
           onClick={searchMealsByName}
           aria-label="Search"
         >
-          <p className="mb-0 fw-bold"><CiSearch /></p>
+          <p className="mb-0 fw-bold">Search <CiSearch /></p>
 
         </button>
       </div>
+
       <div className="container">
         {/* Esto es para que si existe algo más en la lista lo pinte */}
         {resultsCount
           ? (
             <>
+              <FiltersBox
+                // le voy a pasar la lisa original,
+                // el seteador(para que imprima correctamente)
+                // y además el metodo para cuando lo reseteen
+                mealsToPrint={listaResultante}
+                setmealsToPrint={setListaResultante}
+                searchMealsByName={searchMealsByName}
+
+              />
               <SearchResultsInfo
                 numResultados={resultsCount}
                 searchButtonClicked={searchButtonClicked}

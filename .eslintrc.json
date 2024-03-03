@@ -19,6 +19,7 @@
         "linebreak-style": "off",
         // Estas dos lineas las he puesto yo para que no de guerra con el trailling spaces y el one expression per line
         "no-trailing-spaces":"warn",
-        "react/jsx-one-expression-per-line":0
+        "react/jsx-one-expression-per-line":0,
+        "jsx-a11y/label-has-associated-control": "off"
     }
 }
