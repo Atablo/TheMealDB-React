@@ -64,7 +64,7 @@ export default function SearchByName() {
                 // el seteador(para que imprima correctamente)
                 // y además el metodo para cuando lo reseteen
                 mealsToPrint={listaResultante}
-                setmealsToPrint={setListaResultante}
+                setMealsToPrint={setListaResultante}
                 searchMealsByName={searchMealsByName}
 
               />
