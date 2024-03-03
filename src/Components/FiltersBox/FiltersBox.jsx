@@ -66,6 +66,7 @@ export default function FiltersBox({ mealsToPrint, setMealsToPrint, searchMealsB
   };
 
   const resetFilters = () => {
+    searchMealsByName();
     setCategoriaSeleccionada('--');
     setRegionSeleccionada('--');
     setEtiquetaSeleccionada('--');
@@ -123,7 +124,7 @@ export default function FiltersBox({ mealsToPrint, setMealsToPrint, searchMealsB
       </div>
 
       <button className="btn btn-success mt-4" id="applyFilters" type="button" onClick={applyFilters}>Apply Filters</button>
-      <button className="btn btn-danger mt-4 ms-2" id="resetFilters" type="button" onClick={searchMealsByName, resetFilters}>Reset Filters</button>
+      <button className="btn btn-danger mt-4 ms-2" id="resetFilters" type="button" onClick={resetFilters}>Reset Filters</button>
     </div>
   );
 }
