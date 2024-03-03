@@ -3,7 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { region, getAllCategories } from '../../services/searchByName';
 import { etiquetas } from '../../services/searchByIngredient';
 
-export default function FiltersBox({ mealsToPrint, setMealsToPrint, searchMealsByName }) {
+// eslint-disable-next-line max-len
+export default function FiltersBox({
+  mealsToPrint, setMealsToPrint, searchMealsByName, setResultsCount,
+}) {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('--');
   const [regionSeleccionada, setRegionSeleccionada] = useState('--');
   const [etiquetaSelccionada, setEtiquetaSeleccionada] = useState('--');
@@ -61,6 +64,7 @@ export default function FiltersBox({ mealsToPrint, setMealsToPrint, searchMealsB
 
     // una vez acabadas las comprobaciones insertaremos ese array
     setMealsToPrint(filteredMeals);
+    setResultsCount(filteredMeals.length);
     filteredMeals = [...originalList];// volvemos a poner el array original
     console.log(filteredMeals);
   };
@@ -78,7 +82,7 @@ export default function FiltersBox({ mealsToPrint, setMealsToPrint, searchMealsB
         <div className="row">
           <div className="col-md-4 mb-3">
             <label htmlFor="pais" className="form-label">Country</label>
-            <select className="form-select text-center" id="pais" onChange={handleSelectedCountry}>
+            <select className="form-select text-center" id="pais" onChange={handleSelectedCountry} value={regionSeleccionada}>
               <option selected>--</option>
               {
                                     region.map((regionItem) => (
@@ -91,7 +95,7 @@ export default function FiltersBox({ mealsToPrint, setMealsToPrint, searchMealsB
           </div>
           <div className="col-md-4 mb-3">
             <label htmlFor="categoria" className="form-label">Meal category</label>
-            <select className="form-select text-center" id="categoria" onChange={handleSelectedCategory}>
+            <select className="form-select text-center" id="categoria" onChange={handleSelectedCategory} value={categoriaSeleccionada}>
               <option selected>--</option>
               {console.log(categories)}
               {
@@ -109,7 +113,7 @@ export default function FiltersBox({ mealsToPrint, setMealsToPrint, searchMealsB
           </div>
           <div className="col-md-4 mb-3">
             <label htmlFor="etiqueta" className="form-label">Tags</label>
-            <select className="form-select text-center" id="etiqueta" onChange={handleSelectedTag}>
+            <select className="form-select text-center" id="etiqueta" onChange={handleSelectedTag} value={etiquetaSelccionada}>
               <option selected>--</option>
               {
                                     etiquetas.map((etiqueta) => (
@@ -134,6 +138,7 @@ FiltersBox.propTypes = {
   mealsToPrint: PropTypes.arrayOf(PropTypes.object),
   searchMealsByName: PropTypes.func.isRequired,
   setMealsToPrint: PropTypes.func.isRequired,
+  setResultsCount: PropTypes.func.isRequired,
 };
 FiltersBox.defaultProps = {
   mealsToPrint: [], // Valor por defecto para mealsToPrint

@@ -66,6 +66,7 @@ export default function SearchByName() {
                 mealsToPrint={listaResultante}
                 setMealsToPrint={setListaResultante}
                 searchMealsByName={searchMealsByName}
+                setResultsCount={setResultsCount}
 
               />
               <SearchResultsInfo
