@@ -8,6 +8,8 @@ import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
 import MealDetails from './Components/MealDetails/MealDetails';
+import SearchByIngredient from './Components/IngredientPage/SearchByIngredient';
+import SearchByName from './Componentes/SearchByName';
 
 function App() {
   const [selectedMeal, setSelectedMeal] = useState(null);
@@ -37,7 +39,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
-        <Route path="/searchByName" element={<SearchPage />} />
+        <Route path="/searchByName" element={<SearchByName />} />
+        <Route path="/searchByIngredient" element={<SearchByIngredient />} />
         <Route
           path="/meal/:id"
           element={<MealDetails mealData={selectedMeal} />}
