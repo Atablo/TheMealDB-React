@@ -41,7 +41,7 @@ export default function RamdomMealList() {
       <div className="container">
         <div className="row">
           {recipes.map((recipe) => (
-            <div key={recipe.id} className="col-md-6 mb-4">
+            <div key={recipe.id} className="col-md-6 mb-4 px-4 h-100">
               <Card recipe={recipe.data} /> {/* Renderiza el componente Card con
                  la información del plato de comida */}
             </div>
