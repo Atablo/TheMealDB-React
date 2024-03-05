@@ -36,6 +36,7 @@ function MealDetails() {
     }
   }
 
+  const instructionsArray = mealData.strInstructions.split('. ');
   return (
     <div className="container">
       <div className="row mt-5">
@@ -96,9 +97,11 @@ function MealDetails() {
       <div className="w-75 card mx-auto my-4">
         <div className="card-body">
           <h2 className="card-title text-center mb-4">Instructions</h2>
-          <p className="card-text h5 fw-normal">
-            {mealData.strInstructions}
-          </p>
+          {instructionsArray.map((instruction, index) => (
+            <p key={instruction} className="card-text h5 fw-normal  mt-4">
+              {index + 1}. {instruction}
+            </p>
+          ))}
           <div className="w-75 mx-auto mt-4">
             <div className="embed-responsive ratio ratio-16x9 mb-3">
               <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${mealData.strYoutube.split('v=')[1]}`} title="Meal Video" allowFullScreen />
