@@ -56,6 +56,19 @@ Meal.propTypes = {
     strArea: PropTypes.string,
     strAreaThumb: PropTypes.string,
     strTags: PropTypes.string,
-    idMeal: PropTypes.string.isRequired,
-  }).isRequired,
+    idMeal: PropTypes.string,
+  }),
+};
+
+Meal.defaultProps = {
+  recipe: {
+    strSource: '',
+    strMealThumb: '',
+    strMeal: '',
+    strCategory: '',
+    strArea: '',
+    strAreaThumb: '',
+    strTags: '',
+    idMeal: '',
+  },
 };
