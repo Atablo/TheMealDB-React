@@ -9,7 +9,7 @@ import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
 import MealDetails from './Components/MealDetails/MealDetails';
 import SearchByIngredient from './Components/IngredientPage/SearchByIngredient';
-import SearchByName from './Componentes/SearchByName';
+import SearchByName from './Components/SearchByName/SearchByName';
 
 function App() {
   const [selectedMeal, setSelectedMeal] = useState(null);

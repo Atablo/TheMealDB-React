@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 export default function Meal({ recipe }) {
   return (
     <Link to={`/meal/${recipe.idMeal}`} className="text-decoration-none">
-      <div className="card h-100">
-        <div className="row h-100">
+      <div className="card">
+        <div className="row">
           <div className="col-sm-6">
             <img
               src={recipe.strMealThumb}
@@ -56,6 +56,19 @@ Meal.propTypes = {
     strArea: PropTypes.string,
     strAreaThumb: PropTypes.string,
     strTags: PropTypes.string,
-    idMeal: PropTypes.string.isRequired,
-  }).isRequired,
+    idMeal: PropTypes.string,
+  }),
+};
+
+Meal.defaultProps = {
+  recipe: {
+    strSource: '',
+    strMealThumb: '',
+    strMeal: '',
+    strCategory: '',
+    strArea: '',
+    strAreaThumb: '',
+    strTags: '',
+    idMeal: '',
+  },
 };

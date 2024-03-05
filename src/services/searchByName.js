@@ -8,7 +8,7 @@ const listCategories = 'https://www.themealdb.com/api/json/v1/1/list.php?c=list'
 // arrays para ver la correspondencia entre  la abreviación del pais y
 // la abreviación de las banderas según la API
 // eslint-disable-next-line no-unused-vars
-const region = [
+export const region = [
 
   'American',
 

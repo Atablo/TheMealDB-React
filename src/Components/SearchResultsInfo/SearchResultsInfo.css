@@ -1,0 +1,12 @@
+.infoPanel{
+    width: 50%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error{
+    background-color: rgb(209, 93, 93);
+}
+.success{
+    background-color: rgb(0, 219, 18);
+}
