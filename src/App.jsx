@@ -1,57 +1,35 @@
-import React, { useState } from 'react';
-import {
-  Link, Route, Routes, useNavigate,
-} from 'react-router-dom';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Home from './Componentes/Home';
 import SearchPage from './Componentes/SearchPage';
 import Tacos from './Componentes/Tacos';
 import TacoDetails from './Componentes/TacoDetails';
 import Header from './Components/Header/Header';
-import MealDetails from './Components/MealDetails/MealDetails';
 import SearchByIngredient from './Components/IngredientPage/SearchByIngredient';
-import SearchByName from './Componentes/SearchByName';
+import Meal from './Components/Meal/Meal';
+import SearchByName from './Components/SearchByName/SearchByName';
 
 function App() {
-  const [selectedMeal, setSelectedMeal] = useState(null);
-  const navigate = useNavigate();
-
-  // Manejador de clic en la tarjeta de la comida
-  const handleMealClick = (meal) => {
-    setSelectedMeal(meal);
-    navigate(`/meal/${meal.idMeal}`);
-  };
-
   return (
     <div className="App">
       <header>
         <Header />
-        <nav>
-          <ul>
-            <li>
-              <Link to="/searchPage">SearchPage</Link>
-            </li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
       </header>
+      {/* Esto de abajo no está "pintado,son solo indicaciones de las rutas" */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/searchPage" element={<SearchPage />} />
         <Route path="/searchByName" element={<SearchByName />} />
         <Route path="/searchByIngredient" element={<SearchByIngredient />} />
-        <Route
-          path="/meal/:id"
-          element={<MealDetails mealData={selectedMeal} />}
-        />
-        <Route path="/tacos/:idMeal/details" element={<TacoDetails />} />
-        <Route path="/tacos/:nombreDelTaco" element={<Tacos onMealClick={handleMealClick} />} />
+        <Route path="/meal/:id" element={<Meal />} />
+        <Route path="/tacos/:nombreDelTaco" element={<Tacos />}>
+          <Route path="details" element={<TacoDetails />} />
+        </Route>
         <Route
           path="*"
           element={(
             <h1>
-              Lo sentimos!! no hemos encontrado la ruta que has especificado
+              Lo sentimos!! no hemos encontrado la ruta que has específicado
             </h1>
           )}
         />
