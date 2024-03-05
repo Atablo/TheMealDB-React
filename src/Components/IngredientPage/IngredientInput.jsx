@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatalistIngredients from './DatalistIngredients';
 
-export default function IngredientInput({ setOnNameIngredient }) {
+export default function IngredientInput({ onNameIngredientChange }) {
   const [nameIngredient, setNameIngredient] = useState('');
 
   const [mensajeError, setMensajeError] = useState('');
@@ -15,7 +15,7 @@ export default function IngredientInput({ setOnNameIngredient }) {
     } else {
       setMensajeError('');
 
-      setOnNameIngredient(nameIngredient);
+      onNameIngredientChange(nameIngredient);
     }
   };
 
@@ -43,5 +43,5 @@ export default function IngredientInput({ setOnNameIngredient }) {
 }
 
 IngredientInput.propTypes = {
-  setOnNameIngredient: PropTypes.func.isRequired,
+  onNameIngredientChange: PropTypes.func.isRequired,
 };

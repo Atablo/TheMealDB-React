@@ -1,30 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getIngredientsByName } from '../../services/searchByIngredient';
+import {
+  getIngredientsByName,
+  getMealsByName,
+} from '../../services/searchByIngredient';
+import MealList from '../MealList/MealList';
 
-export default function CardMealsByIngredient({ onNameIngredient }) {
-  const [cardMeals, setCardMeals] = useState([]);
+export default function CardMealsByIngredient({ nameIngredient }) {
+  const [mealList, setMealList] = useState([]);
+
+  // useEffect(() => {
+  //   if (nameIngredient) {
+  //     getIngredientsByName(nameIngredient).then((meals) => {
+  //       // Por cada array meals del objeto meals:
+
+  //       setCardMeals(meals.meals);
+
+  //       console.log(meals.meals);
+  //     });
+  //   }
+  // }, [nameIngredient]);
+
+  const onMealList = (plato) => {
+    setMealList((currentMeals) => [...currentMeals, plato.meals[0]]);
+  };
 
   useEffect(() => {
-    getIngredientsByName(onNameIngredient).then((meals) => {
-      // Por cada array meals del objeto meals:
+    if (nameIngredient) {
+      setMealList([]);
+      getIngredientsByName(nameIngredient).then((meals) => {
+        // Por cada array meals del objeto meals:
+        meals.meals.forEach((meal) => {
+          getMealsByName(meal.strMeal).then((plato) => {
+            onMealList(plato);
+          });
+        });
+      });
+    }
+  }, [nameIngredient]);
 
-      setCardMeals(meals.meals);
-    });
-  }, [onNameIngredient]);
-
-  return (
-    <div>
-      {onNameIngredient
-        && cardMeals.map((meal) => <li key={meal.idMeal}>{meal.strMeal}</li>)}
-    </div>
-  );
+  return <div>{nameIngredient && <MealList mealsToPrint={mealList} />}</div>;
 }
 
 CardMealsByIngredient.propTypes = {
-  onNameIngredient: PropTypes.string,
+  nameIngredient: PropTypes.string,
 };
 
 CardMealsByIngredient.defaultProps = {
-  onNameIngredient: '',
+  nameIngredient: '',
 };
