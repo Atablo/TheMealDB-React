@@ -6,13 +6,16 @@ export default function MealList({ mealsToPrint }) {
   return (
     <div className="container">
       <div className="row d-flex">
+
         {mealsToPrint.map((meal) => (
-          <div key={meal.idMeal} className="col-md-6 mb-4">
+          <div key={meal.id} className="col-md-6 mb-4">
             <Meal recipe={meal} />
           </div>
         ))}
+
       </div>
     </div>
+
   );
 }
 
