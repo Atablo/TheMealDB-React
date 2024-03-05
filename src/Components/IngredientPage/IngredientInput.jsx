@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatalistIngredients from './DatalistIngredients';
 
-export default function IngredientInput({ setOnNameIngredient }) {
+export default function IngredientInput({ onNameIngredientChange }) {
   const [nameIngredient, setNameIngredient] = useState('');
 
   const [mensajeError, setMensajeError] = useState('');
@@ -15,12 +15,12 @@ export default function IngredientInput({ setOnNameIngredient }) {
     } else {
       setMensajeError('');
 
-      setOnNameIngredient(nameIngredient);
+      onNameIngredientChange(nameIngredient);
     }
   };
 
   return (
-    <form action="#" className="d-flex my-lg-0" id="searchByIngredient">
+    <form action="#" className="d-flex my-lg-0 py-5" id="searchByIngredient">
       <input
         className="form-control text-center"
         type="text"
@@ -32,7 +32,7 @@ export default function IngredientInput({ setOnNameIngredient }) {
       <p className="error-feedback text-danger p-0 mb-0">{mensajeError}</p>
       <DatalistIngredients id="datalistOptions" />
       <button
-        className="btn btn-outline-light my-2 my-sm-0 mr-10 mx-2"
+        className="btn btn-success my-2 my-sm-0 mr-10 mx-2"
         type="submit"
         onClick={handleMealsByIngredient}
       >
@@ -43,5 +43,5 @@ export default function IngredientInput({ setOnNameIngredient }) {
 }
 
 IngredientInput.propTypes = {
-  setOnNameIngredient: PropTypes.func.isRequired,
+  onNameIngredientChange: PropTypes.func.isRequired,
 };

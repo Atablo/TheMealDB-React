@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 export default function Meal({ recipe }) {
   return (
     <Link to={`/meal/${recipe.idMeal}`} className="text-decoration-none">
-      <div className="card">
-        <div className="row">
+      <div className="card h-100">
+        <div className="row h-100">
           <div className="col-sm-6">
             <img
               src={recipe.strMealThumb}

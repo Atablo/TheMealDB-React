@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Link, Route, Routes, useNavigate,
+  Route, Routes, useNavigate,
 } from 'react-router-dom';
 import Home from './Componentes/Home';
 import SearchPage from './Componentes/SearchPage';
@@ -25,16 +25,7 @@ function App() {
     <div className="App">
       <header>
         <Header />
-        <nav>
-          <ul>
-            <li>
-              <Link to="/searchPage">SearchPage</Link>
-            </li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
+
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
