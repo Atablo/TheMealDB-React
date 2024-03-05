@@ -5,7 +5,10 @@ import { etiquetas } from '../../services/searchByIngredient';
 
 // eslint-disable-next-line max-len
 export default function FiltersBox({
-  mealsToPrint, setMealsToPrint, searchMealsByName, setResultsCount,
+  mealsToPrint,
+  setMealsToPrint,
+  searchMealsByName,
+  setResultsCount,
 }) {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('--');
   const [regionSeleccionada, setRegionSeleccionada] = useState('--');
@@ -13,16 +16,14 @@ export default function FiltersBox({
   // función para obtener las categorías y su array para ir guardándolas
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    getAllCategories().then(
-      (json) => setCategories(json.meals),
-    );
+    getAllCategories().then((json) => setCategories(json.meals));
   }, []);
 
   // voy a ordenar los arrays que no obtengo mediante funciones
   region.sort();
   etiquetas.sort();
 
-  // Para capturar los inpuuts...
+  // Para capturar los inputs...
 
   const handleSelectedCountry = (e) => {
     setRegionSeleccionada(e.target.value);
@@ -45,17 +46,23 @@ export default function FiltersBox({
 
     /*  Aquí haremos las comprobaciones */
     if (categoriaSeleccionada !== '--') {
-      filteredMeals = filteredMeals.filter((item) => item.strCategory === categoriaSeleccionada);
+      filteredMeals = filteredMeals.filter(
+        (item) => item.strCategory === categoriaSeleccionada,
+      );
     }
     if (regionSeleccionada !== '--') {
-      filteredMeals = filteredMeals.filter((item) => item.strArea === regionSeleccionada);
+      filteredMeals = filteredMeals.filter(
+        (item) => item.strArea === regionSeleccionada,
+      );
     }
     if (etiquetaSelccionada !== '--') {
       /* Para las etiqueta será distinto,pues hay varias etiquetas que puede tener una comida */
       // eslint-disable-next-line max-len
       filteredMeals = filteredMeals.filter((item) => {
         if (item.strTags) {
-          return item.strTags.toUpperCase().includes(etiquetaSelccionada.toUpperCase());
+          return item.strTags
+            .toUpperCase()
+            .includes(etiquetaSelccionada.toUpperCase());
         }
         return false; // Devolver false si item.strTags no existe o es null
       });
@@ -65,8 +72,8 @@ export default function FiltersBox({
     // una vez acabadas las comprobaciones insertaremos ese array
     setMealsToPrint(filteredMeals);
     setResultsCount(filteredMeals.length);
-    filteredMeals = [...originalList];// volvemos a poner el array original
-    console.log(filteredMeals);
+    filteredMeals = [...originalList]; // volvemos a poner el array original
+    // console.log(filteredMeals);
   };
 
   const resetFilters = () => {
@@ -76,59 +83,84 @@ export default function FiltersBox({
     setEtiquetaSeleccionada('--');
   };
   return (
-    <div className="alert alert-primary mt-3 mb-2 text-center" role="alert" id="filtros">
+    <div
+      className="alert alert-primary mt-3 mb-2 text-center"
+      role="alert"
+      id="filtros"
+    >
       <h2 className="mb-4">Filters</h2>
       <div className="w-75 mx-auto">
         <div className="row">
           <div className="col-md-4 mb-3">
-            <label htmlFor="pais" className="form-label">Country</label>
-            <select className="form-select text-center" id="pais" onChange={handleSelectedCountry} value={regionSeleccionada}>
-              <option selected>--</option>
-              {
-                                    region.map((regionItem) => (
-
-                                      <option key={regionItem}>{regionItem}</option>
-
-                                    ))
-                                }
+            <p className="form-label">
+              Country
+            </p>
+            <select
+              className="form-select text-center"
+              id="pais"
+              onChange={handleSelectedCountry}
+              value={regionSeleccionada}
+            >
+              <option value="--">--</option>
+              {region.map((regionItem) => (
+                <option value={regionItem} key={regionItem}>{regionItem}</option>
+              ))}
             </select>
           </div>
           <div className="col-md-4 mb-3">
-            <label htmlFor="categoria" className="form-label">Meal category</label>
-            <select className="form-select text-center" id="categoria" onChange={handleSelectedCategory} value={categoriaSeleccionada}>
-              <option selected>--</option>
-              {console.log(categories)}
-              {
-                                    categories.map((category) => (
-
-                                      <option
-                                        key={category.strCategory}
-                                      >
-                                        {category.strCategory}
-                                      </option>
-
-                                    ))
-                                }
+            <p className="form-label">
+              Meal category
+            </p>
+            <select
+              className="form-select text-center"
+              id="categoria"
+              onChange={handleSelectedCategory}
+              value={categoriaSeleccionada}
+            >
+              <option>--</option>
+              {/* {console.log(categories)} */}
+              {categories.map((category) => (
+                <option key={category.strCategory}>
+                  {category.strCategory}
+                </option>
+              ))}
             </select>
           </div>
           <div className="col-md-4 mb-3">
-            <label htmlFor="etiqueta" className="form-label">Tags</label>
-            <select className="form-select text-center" id="etiqueta" onChange={handleSelectedTag} value={etiquetaSelccionada}>
-              <option selected>--</option>
-              {
-                                    etiquetas.map((etiqueta) => (
-
-                                      <option key={etiqueta}>{etiqueta}</option>
-
-                                    ))
-                                }
+            <p className="form-label">
+              Tags
+            </p>
+            <select
+              className="form-select text-center"
+              id="etiqueta"
+              onChange={handleSelectedTag}
+              value={etiquetaSelccionada}
+            >
+              <option>--</option>
+              {etiquetas.map((etiqueta) => (
+                <option key={etiqueta}>{etiqueta}</option>
+              ))}
             </select>
           </div>
         </div>
       </div>
 
-      <button className="btn btn-success mt-4" id="applyFilters" type="button" onClick={applyFilters}>Apply Filters</button>
-      <button className="btn btn-danger mt-4 ms-2" id="resetFilters" type="button" onClick={resetFilters}>Reset Filters</button>
+      <button
+        className="btn btn-success mt-4"
+        id="applyFilters"
+        type="button"
+        onClick={applyFilters}
+      >
+        Apply Filters
+      </button>
+      <button
+        className="btn btn-danger mt-4 ms-2"
+        id="resetFilters"
+        type="button"
+        onClick={resetFilters}
+      >
+        Reset Filters
+      </button>
     </div>
   );
 }
