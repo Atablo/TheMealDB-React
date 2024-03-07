@@ -5,7 +5,7 @@ import Meal from '../Meal/Meal';
 export default function MealList({ mealsToPrint }) {
   return (
     <div className="container">
-      <div className="row d-flex">
+      <div className="row d-flex justify-content-center">
 
         {mealsToPrint.map((meal) => (
           <div key={meal.id} className="col-md-6 mb-4">

@@ -31,9 +31,13 @@ export default function SearchByName() {
       },
     );
   };
-  // numereo de los resultados
+  // numereo de los resultados(habrá que ver si la lista tiene algo no?)
   useEffect(() => {
-    setResultsCount(listaFiltrada.length);
+    if (listaFiltrada) {
+      setResultsCount(listaFiltrada.length);
+    } else {
+      setResultsCount(0);
+    }
   }, [listaFiltrada]);
 
   const applyFilters = (categoriaSeleccionada, regionSeleccionada, etiquetaSelccionada) => {
@@ -95,29 +99,30 @@ export default function SearchByName() {
 
       <div className="container">
         {/* Esto es para que si existe algo más en la lista lo pinte */}
-        {resultsCount
-          ? (
-            <>
-              <FiltersBox
-                // le voy a pasar la lisa original,
-                // el seteador(para que imprima correctamente)
-                // y además el metodo para cuando lo reseteen
-                applyFilters={applyFilters}
-                resetFilters={resetFilters}
-              />
-              <SearchResultsInfo
-                numResultados={resultsCount}
-                searchButtonClicked={searchButtonClicked}
-              />
-              <MealList mealsToPrint={listaFiltrada} />
-            </>
-          )
-          : (
+
+        {(listaOriginal ? (
+          <>
+            <FiltersBox
+            // le voy a pasar la lisa original,
+            // el seteador(para que imprima correctamente)
+            // y además el metodo para cuando lo reseteen
+              applyFilters={applyFilters}
+              resetFilters={resetFilters}
+              countResults={countResults}
+            />
             <SearchResultsInfo
               numResultados={resultsCount}
               searchButtonClicked={searchButtonClicked}
             />
-          )}
+            <MealList mealsToPrint={listaFiltrada} />
+          </>
+        ) : (
+          <SearchResultsInfo
+            numResultados={resultsCount}
+            searchButtonClicked={searchButtonClicked}
+          />
+        ))}
+
       </div>
     </>
   );
