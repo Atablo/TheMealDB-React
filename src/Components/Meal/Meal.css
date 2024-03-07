@@ -13,6 +13,6 @@ a{
 }
 
 body{
-     background-image: url(/public/img/pepperbg.jpg); 
+     background-image: url(pepperbg.jpg); 
     /* background-color: rgb(105, 53, 8); */
 }

@@ -20,7 +20,7 @@ export default function IngredientInput({ onNameIngredientChange }) {
   };
 
   return (
-    <form action="#" className="d-flex my-lg-0" id="searchByIngredient">
+    <form action="#" className="d-flex my-lg-0 py-5" id="searchByIngredient">
       <input
         className="form-control text-center"
         type="text"
@@ -32,7 +32,7 @@ export default function IngredientInput({ onNameIngredientChange }) {
       <p className="error-feedback text-danger p-0 mb-0">{mensajeError}</p>
       <DatalistIngredients id="datalistOptions" />
       <button
-        className="btn btn-outline-light my-2 my-sm-0 mr-10 mx-2"
+        className="btn btn-success my-2 my-sm-0 mr-10 mx-2"
         type="submit"
         onClick={handleMealsByIngredient}
       >
