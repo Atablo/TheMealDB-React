@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable max-len */
+import React, { useEffect, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import { getMealsByName } from '../../services/searchByName';
 import MealList from '../MealList/MealList';
@@ -7,7 +8,8 @@ import FiltersBox from '../FiltersBox/FiltersBox';
 
 export default function SearchByName() {
   const [formField, setFormField] = useState();
-  const [listaResultante, setListaResultante] = useState([]);
+  const [listaOriginal, setListaOriginal] = useState([]);
+  const [listaFiltrada, setListaFiltrada] = useState([]);
   const [resultsCount, setResultsCount] = useState(0);
   const [searchButtonClicked, setSearchButtonClicked] = useState(false);
 
@@ -19,17 +21,54 @@ export default function SearchByName() {
     setFormField(event.target.value);
   };
   const searchMealsByName = () => {
-    // esto es para poner lo de la búsqueda a true
-
     getMealsByName(formField).then(
       (json) => {
-        setListaResultante(json.meals);
+        setListaOriginal(json.meals);
+        setListaFiltrada(json.meals);
         countResults(json.meals);
+        // esto es para poner lo de la búsqueda a true
         setSearchButtonClicked(true);
       },
     );
   };
+  // numereo de los resultados
+  useEffect(() => {
+    setResultsCount(listaFiltrada.length);
+  }, [listaFiltrada]);
 
+  const applyFilters = (categoriaSeleccionada, regionSeleccionada, etiquetaSelccionada) => {
+    // hacemos una copia del array original y trabajamos con ella
+    // setListaFiltrada([...listaOriginal]);
+    let listaAux = [...listaOriginal];
+    /*  Aquí haremos las comprobaciones */
+    if (categoriaSeleccionada !== '--') {
+      listaAux = (listaAux.filter((item) => item.strCategory === categoriaSeleccionada));
+    }
+    if (regionSeleccionada !== '--') {
+      listaAux = (listaAux.filter((item) => item.strArea === regionSeleccionada));
+    }
+    if (etiquetaSelccionada !== '--') {
+      /* Para las etiqueta será distinto,pues hay varias etiquetas que puede tener una comida */
+      // eslint-disable-next-line max-len
+      listaAux = (listaAux.filter((item) => {
+        if (item.strTags) {
+          return item.strTags.toUpperCase().includes(etiquetaSelccionada.toUpperCase());
+        }
+        return false; // Devolver false si item.strTags no existe o es null
+      }));
+    }
+    /** Aquí hay duda!! como puedo volver a almacenar el array orignal??? */
+    setListaFiltrada(listaAux);
+    // una vez acabadas las comprobaciones insertaremos ese array
+  };
+
+  const resetFilters = (setCategoriaSeleccionada, setRegionSeleccionada, setEtiquetaSeleccionada) => {
+    setListaFiltrada(listaOriginal);
+    setResultsCount(listaOriginal.length);
+    setCategoriaSeleccionada('--');
+    setRegionSeleccionada('--');
+    setEtiquetaSeleccionada('--');
+  };
   return (
     <>
       <div>
@@ -63,17 +102,14 @@ export default function SearchByName() {
                 // le voy a pasar la lisa original,
                 // el seteador(para que imprima correctamente)
                 // y además el metodo para cuando lo reseteen
-                mealsToPrint={listaResultante}
-                setMealsToPrint={setListaResultante}
-                searchMealsByName={searchMealsByName}
-                setResultsCount={setResultsCount}
-
+                applyFilters={applyFilters}
+                resetFilters={resetFilters}
               />
               <SearchResultsInfo
                 numResultados={resultsCount}
                 searchButtonClicked={searchButtonClicked}
               />
-              <MealList mealsToPrint={listaResultante} />
+              <MealList mealsToPrint={listaFiltrada} />
             </>
           )
           : (
