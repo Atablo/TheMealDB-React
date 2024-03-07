@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Error from '../../Componentes/Error';
+import MealList from '../MealList/MealList';
 
 function MealDetails() {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [mealData, setMealData] = useState(null);
+  const [relatedRecipes, setRelatedRecipes] = useState([]);
 
   useEffect(() => {
     const fetchMealDetails = async () => {
@@ -22,11 +25,49 @@ function MealDetails() {
     fetchMealDetails();
   }, [id]);
 
+  // Dentro de la función fetchRelatedRecipes
+  const fetchRelatedRecipes = async (ingredient) => {
+    try {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+      const data = await response.json();
+
+      if (data.meals) {
+        const idMeals = data.meals.map((meal) => meal.idMeal);
+
+        const detailedRecipes = await Promise.all(idMeals.map(async (idMeal) => {
+          try {
+            const detailResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
+            const detailData = await detailResponse.json();
+            return detailData.meals ? detailData.meals[0] : null;
+          } catch (error) {
+            console.error(`Error fetching details for meal ${idMeal}:`, error);
+            return null;
+          }
+        }));
+
+        const filteredDetailedRecipes = detailedRecipes.filter((recipe) => recipe !== null);
+
+        setRelatedRecipes(filteredDetailedRecipes);
+      }
+    } catch (error) {
+      console.error('Error fetching related recipes:', error);
+    }
+  };
+
+  const handleIngredientClick = (ingredient) => {
+    navigate(`/ingredient-recipes/${ingredient}`);
+  };
+
+  const handleIngredientKeyDown = (event, ingredient) => {
+    if (event.key === 'Enter') {
+      fetchRelatedRecipes(ingredient);
+    }
+  };
+
   if (!mealData) {
     return <Error />;
   }
 
-  // Extract ingredients and measures
   const ingredients = [];
   for (let i = 1; i <= 20; i += 1) {
     const ingredient = mealData[`strIngredient${i}`];
@@ -37,6 +78,7 @@ function MealDetails() {
   }
 
   const instructionsArray = mealData.strInstructions.split('. ');
+
   return (
     <div className="container">
       <div className="row mt-5">
@@ -72,15 +114,27 @@ function MealDetails() {
                     <div className="row flex-wrap justify-content-center shadow rounded-3 m-2 mt-4">
                       <h4 className="card-title mb-4 bg-info-subtle rounded-2 p-2 text-center">Ingredients</h4>
                       {ingredients.map((ingredient, index) => (
-                        <div key={`${ingredient.ingredient}-${ingredient.measure}`} className="ingredient col-1 col-sm-1 col-lg-2 col-xl-2 my-2 text-center ingredient-container">
+                        <div
+                          key={`${ingredient.ingredient}-${ingredient.measure}`}
+                          className="ingredient col-1 col-sm-1 col-lg-2 col-xl-2 my-2 text-center ingredient-container"
+                          onClick={() => handleIngredientClick(ingredient.ingredient)}
+                          onKeyDown={(e) => handleIngredientKeyDown(e, ingredient.ingredient)}
+                          role="button"
+                          tabIndex={0}
+                          style={{ cursor: 'pointer' }}
+                        >
                           <div className="bg-cardbody rounded-4 p-2">
-                            <img src={`https://www.themealdb.com/images/ingredients/${ingredient.ingredient.split(' ').pop()}-small.png`} alt="" className="card-img-top img-fluid" />
+                            <img
+                              src={`https://www.themealdb.com/images/ingredients/${ingredient.ingredient.split(' ').pop()}-small.png`}
+                              alt=""
+                              className="card-img-top img-fluid"
+                            />
                           </div>
                           <p className={`ingredient${index + 1} m-0`}>{`${ingredient.measure} ${ingredient.ingredient}`}</p>
                         </div>
                       ))}
-                    </div>
 
+                    </div>
                   </div>
                   <div className="text-end mt-2 mb-3">
                     <a href={mealData.strSource} className="text-decoration-none pe-4" target="_blank" rel="noreferrer">
@@ -109,6 +163,14 @@ function MealDetails() {
           </div>
         </div>
       </div>
+
+      {/* Display related recipes */}
+      {relatedRecipes.length > 0 && (
+        <div className="row flex-wrap justify-content-center shadow rounded-3 m-2 mt-4">
+          <h4 className="card-title mb-4 bg-info-subtle rounded-2 p-2 text-center">Related Recipes</h4>
+          <MealList mealsToPrint={relatedRecipes} />
+        </div>
+      )}
     </div>
   );
 }
