@@ -22,6 +22,11 @@ export default function SearchResultsInfo({ numResultados, searchButtonClicked }
 }
 
 SearchResultsInfo.propTypes = {
-  numResultados: PropTypes.number.isRequired,
-  searchButtonClicked: PropTypes.bool.isRequired,
+  numResultados: PropTypes.number,
+  searchButtonClicked: PropTypes.bool,
+};
+
+SearchResultsInfo.defaultProps = {
+  numResultados: '',
+  searchButtonClicked: '',
 };

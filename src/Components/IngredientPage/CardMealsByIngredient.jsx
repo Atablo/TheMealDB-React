@@ -23,7 +23,6 @@ export default function CardMealsByIngredient({ nameIngredient }) {
   useEffect(() => {
     if (nameIngredient) {
       setMealList([]);
-      
       getIngredientsByName(nameIngredient).then((meals) => {
         // Por cada array meals del objeto meals:
         meals.meals.forEach((meal) => {
