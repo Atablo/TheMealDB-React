@@ -23,6 +23,7 @@ export default function CardMealsByIngredient({ nameIngredient }) {
   useEffect(() => {
     if (nameIngredient) {
       setMealList([]);
+      setListaFiltrada([]);
       getIngredientsByName(nameIngredient).then((meals) => {
         // Por cada array meals del objeto meals:
         meals.meals.forEach((meal) => {
@@ -87,13 +88,15 @@ export default function CardMealsByIngredient({ nameIngredient }) {
     <div>
       {resultsCount || nameIngredient ? (
         <>
-          <FiltersBox
-            // le voy a pasar la lisa original,
-            // el seteador(para que imprima correctamente)
-            // y además el metodo para cuando lo reseteen
-            applyFilters={applyFilters}
-            resetFilters={resetFilters}
-          />
+          <div className="container">
+            <FiltersBox
+              // le voy a pasar la lisa original,
+              // el seteador(para que imprima correctamente)
+              // y además el metodo para cuando lo reseteen
+              applyFilters={applyFilters}
+              resetFilters={resetFilters}
+            />
+          </div>
           <MealList mealsToPrint={listaFiltrada} />
         </>
       ) : (
