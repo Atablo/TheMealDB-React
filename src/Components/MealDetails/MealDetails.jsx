@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Error from '../../Componentes/Error';
 import MealList from '../MealList/MealList';
 import { establishFlag } from '../../services/searchByName';
+import { getMealDetailsById } from '../../services/searchByIngredient';
 
 function MealDetails() {
   const navigate = useNavigate();
@@ -13,8 +14,7 @@ function MealDetails() {
   useEffect(() => {
     const fetchMealDetails = async () => {
       try {
-        const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
-        const data = await response.json();
+        const data = await getMealDetailsById(id);
         if (data.meals && data.meals.length > 0) {
           setMealData(data.meals[0]);
         }
@@ -37,9 +37,8 @@ function MealDetails() {
 
         const detailedRecipes = await Promise.all(idMeals.map(async (idMeal) => {
           try {
-            const detailResponse = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`);
-            const detailData = await detailResponse.json();
-            return detailData.meals ? detailData.meals[0] : null;
+            const detailResponse = await getMealDetailsById(idMeal);
+            return detailResponse.meals ? detailResponse.meals[0] : null;
           } catch (error) {
             console.error(`Error fetching details for meal ${idMeal}:`, error);
             return null;

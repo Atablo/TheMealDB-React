@@ -198,3 +198,20 @@ export async function getMealsByName(nombreComida) {
   const json = await listaComidas.json();
   return json;
 }
+
+export async function getMealDetailsById(idMeal) {
+  try {
+    const urlFetch = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
+    const response = await fetch(urlFetch);
+
+    if (!response.ok) {
+      throw new Error(`Error al obtener detalles del plato. Código de estado: ${response.status}`);
+    }
+
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error('Error en la solicitud:', error.message);
+    throw error; // Puedes manejar el error según tus necesidades
+  }
+}
