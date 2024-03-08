@@ -8,7 +8,6 @@ export default function Meal({ recipe }) {
   const getColorForTag = (tag) => {
     const tagColors = {
       Rice: 'bg-rice',
-      rice: 'bg-rice',
       Alcoholic: 'bg-alcoholic',
       BBQ: 'bg-bbq',
       Baking: 'bg-baking',
