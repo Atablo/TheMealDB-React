@@ -4,12 +4,7 @@ import { region, getAllCategories } from '../../services/searchByName';
 import { etiquetas } from '../../services/searchByIngredient';
 
 // eslint-disable-next-line max-len
-export default function FiltersBox({
-  mealsToPrint,
-  setMealsToPrint,
-  searchMealsByName,
-  setResultsCount,
-}) {
+export default function FiltersBox({ applyFilters, resetFilters }) {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('--');
   const [regionSeleccionada, setRegionSeleccionada] = useState('--');
   const [etiquetaSelccionada, setEtiquetaSeleccionada] = useState('--');
@@ -23,7 +18,7 @@ export default function FiltersBox({
   region.sort();
   etiquetas.sort();
 
-  // Para capturar los inputs...
+  // Para capturar los inpuuts...
 
   const handleSelectedCountry = (e) => {
     setRegionSeleccionada(e.target.value);
@@ -38,50 +33,8 @@ export default function FiltersBox({
   };
 
   // hago copia de la lista para utilizarla luego
-  const originalList = [...mealsToPrint];
-  let filteredMeals = [...mealsToPrint];
   // Función para aplicar los filtros
-  const applyFilters = () => {
-    // hacemos una copia del array original y trabajamos con ella
 
-    /*  Aquí haremos las comprobaciones */
-    if (categoriaSeleccionada !== '--') {
-      filteredMeals = filteredMeals.filter(
-        (item) => item.strCategory === categoriaSeleccionada,
-      );
-    }
-    if (regionSeleccionada !== '--') {
-      filteredMeals = filteredMeals.filter(
-        (item) => item.strArea === regionSeleccionada,
-      );
-    }
-    if (etiquetaSelccionada !== '--') {
-      /* Para las etiqueta será distinto,pues hay varias etiquetas que puede tener una comida */
-      // eslint-disable-next-line max-len
-      filteredMeals = filteredMeals.filter((item) => {
-        if (item.strTags) {
-          return item.strTags
-            .toUpperCase()
-            .includes(etiquetaSelccionada.toUpperCase());
-        }
-        return false; // Devolver false si item.strTags no existe o es null
-      });
-    }
-    /** Aquí hay duda!! como puedo volver a almacenar el array orignal??? */
-
-    // una vez acabadas las comprobaciones insertaremos ese array
-    setMealsToPrint(filteredMeals);
-    setResultsCount(filteredMeals.length);
-    filteredMeals = [...originalList]; // volvemos a poner el array original
-    // console.log(filteredMeals);
-  };
-
-  const resetFilters = () => {
-    searchMealsByName();
-    setCategoriaSeleccionada('--');
-    setRegionSeleccionada('--');
-    setEtiquetaSeleccionada('--');
-  };
   return (
     <div
       className="alert alert-primary mt-3 mb-2 text-center"
@@ -115,10 +68,10 @@ export default function FiltersBox({
               onChange={handleSelectedCategory}
               value={categoriaSeleccionada}
             >
-              <option>--</option>
-              {/* {console.log(categories)} */}
+              <option value="--">--</option>
+              {console.log(categories)}
               {categories.map((category) => (
-                <option key={category.strCategory}>
+                <option value={category.strCategory} key={category.strCategory}>
                   {category.strCategory}
                 </option>
               ))}
@@ -132,9 +85,11 @@ export default function FiltersBox({
               onChange={handleSelectedTag}
               value={etiquetaSelccionada}
             >
-              <option>--</option>
+              <option value="--">--</option>
               {etiquetas.map((etiqueta) => (
-                <option key={etiqueta}>{etiqueta}</option>
+                <option value={etiqueta} key={etiqueta}>
+                  {etiqueta}
+                </option>
               ))}
             </select>
           </div>
@@ -145,7 +100,11 @@ export default function FiltersBox({
         className="btn btn-success mt-4"
         id="applyFilters"
         type="button"
-        onClick={applyFilters}
+        onClick={() => applyFilters(
+          categoriaSeleccionada,
+          regionSeleccionada,
+          etiquetaSelccionada,
+        )}
       >
         Apply Filters
       </button>
@@ -153,7 +112,11 @@ export default function FiltersBox({
         className="btn btn-danger mt-4 ms-2"
         id="resetFilters"
         type="button"
-        onClick={resetFilters}
+        onClick={() => resetFilters(
+          setCategoriaSeleccionada,
+          setRegionSeleccionada,
+          setEtiquetaSeleccionada,
+        )}
       >
         Reset Filters
       </button>
@@ -162,12 +125,6 @@ export default function FiltersBox({
 }
 
 FiltersBox.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  mealsToPrint: PropTypes.arrayOf(PropTypes.object),
-  searchMealsByName: PropTypes.func.isRequired,
-  setMealsToPrint: PropTypes.func.isRequired,
-  setResultsCount: PropTypes.func.isRequired,
-};
-FiltersBox.defaultProps = {
-  mealsToPrint: [], // Valor por defecto para mealsToPrint
+  applyFilters: PropTypes.func.isRequired,
+  resetFilters: PropTypes.func.isRequired,
 };
