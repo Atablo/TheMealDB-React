@@ -115,7 +115,7 @@ export default function Meal({ recipe }) {
                   <img src={`${establishFlag(recipe.strArea)}`} alt="" className="ml-2 mr-2 d-sm-flex countryFlag" />
                 </div>
               </div>
-              <h5 className="card-title mt-3 d-flex justify-content-center">
+              <h5 className="card-title mt-3 d-flex justify-content-center text-center">
                 {recipe.strMeal}
               </h5>
               <div className="row flex-wrap justify-content-center align-content-stretch align-items-end shadow rounded-3 m-2 mt-3">

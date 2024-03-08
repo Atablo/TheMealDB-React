@@ -1,15 +1,17 @@
-.w-450x {
+/* BORRAR, PROBABLEMENTE INSERVIBLE */
+/* .w-450x {
     width: 450px;
 }
 
-
 .center-text {
     text-align: center;
-}
+} */
 
-a {
+/*///////////////////////////////////*/
+
+/* a {
     text-decoration: none;
-}
+} */
 
 body {
     background-image: url(pepperbg.jpg);
@@ -21,7 +23,6 @@ body {
     background-color: #ffffff;
     /* Blanco para Rice */
     color: #000000;
-    /* Texto negro */
 }
 
 .bg-alcoholic {
@@ -402,7 +403,6 @@ body {
     background-color: #aaffaa;
     /* Cambia este color según tus preferencias */
     color: #000000;
-    /* Cambia el color del texto según tus preferencias */
 }
 
 .bg-beef {
