@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Error from '../../Componentes/Error';
 import MealList from '../MealList/MealList';
+import { establishFlag } from '../../services/searchByName';
 
 function MealDetails() {
   const navigate = useNavigate();
@@ -105,8 +106,8 @@ function MealDetails() {
                           <strong className="fs-6 country">{mealData.strArea}</strong>
                         </div>
                         <img
-                          src={`https://www.themealdb.com/images/icons/flags/big/32/${mealData.strArea}.png`}
-                          alt=""
+                          src={`${establishFlag(mealData.strArea)}`}
+                          alt={mealData.strArea}
                           className="ml-2 mr-2 d-sm-flex countryFlag"
                         />
                       </div>

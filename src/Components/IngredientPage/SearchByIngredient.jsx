@@ -6,9 +6,11 @@ export default function SearchByIngredient() {
   const [ingredient, setIngredient] = useState();
 
   return (
-    <div className="w-75 mx-auto">
+    <div className="mx-auto">
       <div className="flex-column w-40 py-2">
-        <IngredientInput onNameIngredientChange={setIngredient} />
+        <div className="w-75 mx-auto">
+          <IngredientInput onNameIngredientChange={setIngredient} />
+        </div>
         <CardMealsByIngredient nameIngredient={ingredient} />
       </div>
     </div>

@@ -134,3 +134,12 @@ export async function getAllCategories() {
   const json = await response.json();
   return json;
 }
+
+export function establishFlag(nombrePais) {
+  // tenemos que buscar el pais en el array de regiones y obtener el indice
+  const indice = region.indexOf(nombrePais);
+  // con ese indice sacamos la abreviación
+  const countryAbrev = countryFlags[indice];
+  // y establecemos esa abreviación en la url que nos traerá la abreviatura correspondiente
+  return `https://www.themealdb.com/images/icons/flags/big/32/${countryAbrev}.png`;
+}

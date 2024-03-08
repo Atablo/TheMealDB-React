@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { establishFlag } from '../../services/searchByName';
 
 export default function Meal({ recipe }) {
   return (
@@ -15,17 +16,17 @@ export default function Meal({ recipe }) {
               style={{ objectFit: 'cover' }}
             />
           </div>
-          <div className="col-sm-6">
-            <div className="card-body h-100">
-              <div className="d-flex justify-content-between shadow p-3 rounded-5">
+          <div className="col-sm-6 ps-0">
+            <div className="card-body h-100 ps-0">
+              <div className="d-flex justify-content-around shadow p-3 rounded-5">
                 <div className="bg-warning w-50 d-flex justify-content-center rounded-4 align-items-center">
                   <strong className="align-items-center type text-light">{recipe.strCategory}</strong>
                 </div>
-                <div className="w-50 d-flex justify-content-center align-items-center">
+                <div className="w-50 d-flex justify-content-around align-items-center">
                   <div className="w-50 d-flex justify-content-center align-items-center d-none d-md-flex">
                     <strong className="fs-6 country">{recipe.strArea}</strong>
                   </div>
-                  <img src={recipe.strAreaThumb} alt="" className="ml-2 mr-2 d-sm-flex countryFlag" />
+                  <img src={`${establishFlag(recipe.strArea)}`} alt="" className="ml-2 mr-2 d-sm-flex countryFlag" />
                 </div>
               </div>
               <h5 className="card-title mt-3 d-flex justify-content-center">
