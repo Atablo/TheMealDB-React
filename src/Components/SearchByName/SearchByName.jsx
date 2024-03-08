@@ -78,9 +78,10 @@ export default function SearchByName() {
       <div>
         <h1 className="text-center">Seach a meal by it&apos;s name</h1>
       </div>
-      <div className="row w-75 mx-auto">
+      <div className="row container mx-auto w-50 rounded justify-content-center">
         <input
           type="text"
+          className="w-50 me-1 rounded-left"
           name=""
           id=""
           placeholder="Search by Name"
@@ -88,11 +89,11 @@ export default function SearchByName() {
         />
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary w-25 rounded-left"
           onClick={searchMealsByName}
           aria-label="Search"
         >
-          <p className="mb-0 fw-bold">Search <CiSearch /></p>
+          <p className="mb-0 fw-bold rounded-right">Search <CiSearch /></p>
 
         </button>
       </div>
@@ -109,6 +110,7 @@ export default function SearchByName() {
               applyFilters={applyFilters}
               resetFilters={resetFilters}
               countResults={countResults}
+              className="w-75"
             />
             <SearchResultsInfo
               numResultados={resultsCount}
