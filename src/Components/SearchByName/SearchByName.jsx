@@ -12,7 +12,11 @@ export default function SearchByName() {
   const [searchButtonClicked, setSearchButtonClicked] = useState(false);
 
   const countResults = (results) => {
-    if (results) { setResultsCount(results.length); } else { setResultsCount(0); }
+    if (results) {
+      setResultsCount(results.length);
+    } else {
+      setResultsCount(0);
+    }
   };
 
   const formFieldHandler = (event) => {
@@ -21,13 +25,11 @@ export default function SearchByName() {
   const searchMealsByName = () => {
     // esto es para poner lo de la búsqueda a true
 
-    getMealsByName(formField).then(
-      (json) => {
-        setListaResultante(json.meals);
-        countResults(json.meals);
-        setSearchButtonClicked(true);
-      },
-    );
+    getMealsByName(formField).then((json) => {
+      setListaResultante(json.meals);
+      countResults(json.meals);
+      setSearchButtonClicked(true);
+    });
   };
 
   return (
@@ -49,39 +51,37 @@ export default function SearchByName() {
           onClick={searchMealsByName}
           aria-label="Search"
         >
-          <p className="mb-0 fw-bold">Search <CiSearch /></p>
-
+          <p className="mb-0 fw-bold">
+            Search <CiSearch />
+          </p>
         </button>
       </div>
 
       <div className="container">
         {/* Esto es para que si existe algo más en la lista lo pinte */}
-        {resultsCount
-          ? (
-            <>
-              <FiltersBox
-                // le voy a pasar la lisa original,
-                // el seteador(para que imprima correctamente)
-                // y además el metodo para cuando lo reseteen
-                mealsToPrint={listaResultante}
-                setMealsToPrint={setListaResultante}
-                searchMealsByName={searchMealsByName}
-                setResultsCount={setResultsCount}
-
-              />
-              <SearchResultsInfo
-                numResultados={resultsCount}
-                searchButtonClicked={searchButtonClicked}
-              />
-              <MealList mealsToPrint={listaResultante} />
-            </>
-          )
-          : (
+        {resultsCount ? (
+          <>
+            <FiltersBox
+              // le voy a pasar la lisa original,
+              // el seteador(para que imprima correctamente)
+              // y además el metodo para cuando lo reseteen
+              mealsToPrint={listaResultante}
+              setMealsToPrint={setListaResultante}
+              searchMealsByName={searchMealsByName}
+              setResultsCount={setResultsCount}
+            />
             <SearchResultsInfo
               numResultados={resultsCount}
               searchButtonClicked={searchButtonClicked}
             />
-          )}
+            <MealList mealsToPrint={listaResultante} />
+          </>
+        ) : (
+          <SearchResultsInfo
+            numResultados={resultsCount}
+            searchButtonClicked={searchButtonClicked}
+          />
+        )}
       </div>
     </>
   );

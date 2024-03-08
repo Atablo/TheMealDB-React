@@ -92,9 +92,7 @@ export default function FiltersBox({
       <div className="w-75 mx-auto">
         <div className="row">
           <div className="col-md-4 mb-3">
-            <p className="form-label">
-              Country
-            </p>
+            <p className="form-label">Country</p>
             <select
               className="form-select text-center"
               id="pais"
@@ -103,14 +101,14 @@ export default function FiltersBox({
             >
               <option value="--">--</option>
               {region.map((regionItem) => (
-                <option value={regionItem} key={regionItem}>{regionItem}</option>
+                <option value={regionItem} key={regionItem}>
+                  {regionItem}
+                </option>
               ))}
             </select>
           </div>
           <div className="col-md-4 mb-3">
-            <p className="form-label">
-              Meal category
-            </p>
+            <p className="form-label">Meal category</p>
             <select
               className="form-select text-center"
               id="categoria"
@@ -127,9 +125,7 @@ export default function FiltersBox({
             </select>
           </div>
           <div className="col-md-4 mb-3">
-            <p className="form-label">
-              Tags
-            </p>
+            <p className="form-label">Tags</p>
             <select
               className="form-select text-center"
               id="etiqueta"
