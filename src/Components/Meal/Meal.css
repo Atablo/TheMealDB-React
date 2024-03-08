@@ -3,16 +3,416 @@
 }
 
 
-
 .center-text {
     text-align: center;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-body{
-     background-image: url(pepperbg.jpg); 
+body {
+    background-image: url(pepperbg.jpg);
     /* background-color: rgb(105, 53, 8); */
+}
+
+
+.bg-rice {
+    background-color: #ffffff;
+    /* Blanco para Rice */
+    color: #000000;
+    /* Texto negro */
+}
+
+.bg-alcoholic {
+    background-color: #ffcc00;
+    /* Amarillo para Alcoholic */
+}
+
+.bg-bbq {
+    background-color: #ff9966;
+    /* Naranja claro para BBQ */
+}
+
+.bg-baking {
+    background-color: #ff6633;
+    /* Naranja para Baking */
+    color: #ffffff;
+    /* Texto blanco */
+}
+
+.bg-breakfast {
+    background-color: #cc3300;
+    color: #ffffff;
+    /* Marrón rojizo para Breakfast */
+}
+
+.bg-bun {
+    background-color: #996633;
+    color: #ffffff;
+    /* Marrón claro para Bun */
+}
+
+.bg-calorific {
+    background-color: #ff0000;
+    /* Rojo para Calorific */
+}
+
+.bg-caramel {
+    background-color: #ffcc99;
+    /* Rosa claro para Caramel */
+}
+
+.bg-cheasy {
+    background-color: #ffff00;
+    /* Amarillo pálido para Cheasy */
+}
+
+.bg-chilli {
+    background-color: #ff6600;
+    /* Naranja oscuro para Chilli */
+}
+
+.bg-chocolate {
+    background-color: #663300;
+    color: #ffffff;
+    /* Marrón oscuro para Chocolate */
+}
+
+.bg-starter {
+    background-color: #9900cc;
+    color: #ffffff;
+
+}
+
+.bg-curry {
+    background-color: #cc9900;
+    /* Amarillo mostaza para Curry */
+}
+
+.bg-dairy {
+    background-color: #ccffcc;
+    /* Verde claro para Dairy */
+}
+
+.bg-datenight {
+    background-color: #ff3399;
+    /* Rosa oscuro para Datenight */
+}
+
+.bg-desert {
+    background-color: #ffcc66;
+    /* Amarillo suave para Desert */
+}
+
+.bg-dessert {
+    background-color: #ffcc66;
+    /* Amarillo suave para Dessert */
+}
+
+.bg-dinnerparty {
+    background-color: #cc3399;
+    color: #ffffff;
+    /* Morado oscuro para Dinnerparty */
+}
+
+.bg-egg {
+    background-color: #ffffcc;
+    /* Amarillo pálido para Egg */
+}
+
+.bg-expensive {
+    background-color: #990000;
+    color: #ffffff;
+    /* Borgoña oscuro para Expensive */
+}
+
+.bg-fish {
+    background-color: #3399ff;
+    /* Azul claro para Fish */
+}
+
+.bg-fresh {
+    background-color: #33cc33;
+    /* Verde para Fresh */
+}
+
+.bg-fruity {
+    background-color: #ff9933;
+    /* Naranja para Fruity */
+}
+
+.bg-glazed {
+    background-color: #ff9966;
+    /* Naranja claro para Glazed */
+}
+
+.bg-greasy {
+    background-color: #666633;
+    color: #ffffff;
+    /* Verde oliva para Greasy */
+}
+
+.bg-heavy {
+    background-color: #666666;
+    color: #ffffff;
+    /* Gris oscuro para Heavy */
+}
+
+.bg-light {
+    background-color: #99ccff;
+    color: #ffffff;
+    /* Azul claro para Light */
+}
+
+.bg-mainmeal {
+    background-color: #996633;
+    /* Marrón claro para Mainmeal */
+}
+
+.bg-meat {
+    background-color: #cc0000;
+    color: #ffffff;
+    /* Rojo oscuro para Meat */
+}
+
+.bg-mild {
+    background-color: #ffcc00;
+    /* Amarillo para Mild */
+}
+
+.bg-nutty {
+    background-color: #cc9900;
+    color: #ffffff;
+    /* Amarillo mostaza para Nutty */
+}
+
+.bg-onthego {
+    background-color: #ffcc99;
+    /* Rosa claro para Onthego */
+}
+
+.bg-cake {
+    background-color: #ed87d5;
+    color: #ffffff;
+    /* Amarillo suave para Pancake */
+}
+
+.bg-pasta {
+    background-color: #ff3300;
+    color: #ffffff;
+    /* Rojo anaranjado para Pasta */
+}
+
+.bg-pie {
+    background-color: #ffcc66;
+    /* Amarillo suave para Pie */
+}
+
+.bg-pudding {
+    background-color: #ffcc99;
+    /* Rosa claro para Pudding */
+}
+
+.bg-pulse {
+    background-color: #339966;
+    color: #ffffff;
+    /* Verde azulado para Pulse */
+}
+
+.bg-sausages {
+    background-color: #996633;
+    color: #ffffff;
+    /* Marrón claro para Sausages */
+}
+
+.bg-savory {
+    background-color: #999966;
+    color: #ffffff;
+    /* Amarillo verdoso para Savory */
+}
+
+.bg-seafood {
+    background-color: #3399ff;
+    color: #ffffff;
+    /* Azul claro para Seafood */
+}
+
+.bg-shellfish {
+    background-color: #3399ff;
+
+    /* Azul claro para Shellfish */
+}
+
+.bg-sidedish {
+    background-color: #99ccff;
+    color: #ffffff;
+    /* Azul claro para Sidedish */
+}
+
+.bg-pork {
+    background-color: #ff99df;
+    /* Azul claro para Sidedish */
+}
+
+.bg-side {
+    background-color: #99ccff96;
+   
+    /* Azul claro para Sidedish */
+}
+
+.bg-paella {
+    background-color: #ff9900;
+    /* Naranja claro para Paella */
+}
+
+.bg-snack {
+    background-color: #996633;
+    color: #ffffff;
+    /* Marrón claro para Snack */
+}
+
+.bg-soup {
+    background-color: #3399ff;
+    color: #ffffff;
+    /* Azul claro para Soup */
+}
+
+.bg-speciality {
+    background-color: #ff3300;
+    /* Rojo anaranjado para Speciality */
+}
+
+.bg-spicy {
+    background-color: #ff6600;
+    /* Naranja oscuro para Spicy */
+}
+
+.bg-stew {
+    background-color: #999966;
+    /* Amarillo verdoso para Stew */
+}
+
+.bg-strongflavor {
+    background-color: #cc6600;
+    color: #ffffff;
+    /* Marrón para Strongflavor */
+}
+
+.bg-summer {
+    background-color: #66ccff;
+    color: #ffffff;
+    /* Azul claro para Summer */
+}
+
+.bg-sweet {
+    background-color: #ffcc66;
+    /* Amarillo suave para Sweet */
+}
+
+.bg-tart {
+    background-color: #ff9966;
+    /* Naranja claro para Tart */
+}
+
+.bg-treat {
+    background-color: #ffcc66;
+    /* Amarillo suave para Treat */
+}
+
+.bg-unhealthy {
+    background-color: #cc0000;
+    color: #ffffff;
+    /* Rojo oscuro para Unhealthy */
+}
+
+.bg-vegan {
+    background-color: #66cc33;
+    /* Verde para Vegan */
+}
+
+.bg-vegetables {
+    background-color: #33cc33;
+    /* Verde para Vegetables */
+}
+
+.bg-warm {
+    background-color: #ff9900;
+    /* Naranja claro para Warm */
+}
+
+/* Otras etiquetas */
+.bg-sandwich {
+    background-color: #ffcc00;
+    /* Amarillo para Sandwich */
+}
+
+.bg-warming {
+    background-color: #ff9900;
+    /* Naranja claro para Warming */
+}
+
+
+
+.bg-hangoverfood {
+    background-color: #9900cc;
+    color: #ffffff;
+    /* Morado para HangoverFood */
+}
+
+.bg-brunch {
+    background-color: #ffcc00;
+    /* Amarillo para Brunch */
+}
+
+.bg-christmas {
+    background-color: #cc0000;
+    color: #ffffff;
+    /* Rojo oscuro para Christmas */
+}
+
+.bg-miscellaneous {
+    background-color: #999999;
+    /* Gris para Miscellaneous */
+}
+
+.bg-salad {
+    background-color: #33cc33;
+    /* Verde para Salad */
+}
+
+.bg-halloween {
+    background-color: #cc3300;
+    color: #ffffff;
+    /* Marrón rojizo para Halloween */
+}
+
+.bg-fusion {
+    background-color: #993300;
+    color: #ffffff;
+    /* Marrón oscuro para Fusion */
+}
+
+.bg-pancake {
+    background-color: #ffcc66;
+    /* Amarillo suave para Pancake */
+}
+
+.bg-vegetarian {
+    background-color: #aaffaa;
+    /* Cambia este color según tus preferencias */
+    color: #000000;
+    /* Cambia el color del texto según tus preferencias */
+}
+
+.bg-beef {
+    background-color: #ff9999;
+}
+
+.bg-lamb {
+    background-color: #ffd699;
+}
+
+.bg-chicken {
+    background-color: #ffff99;
 }
