@@ -13,21 +13,23 @@ export default function CardMealsByIngredient({ nameIngredient }) {
 
   const [listaFiltrada, setListaFiltrada] = useState([]);
   const [resultsCount, setResultsCount] = useState(0);
+  const [searchButtonClicked, setSearchButtonClicked] = useState(false);
 
   const onMealList = (plato) => {
     setMealList((currentMeals) => [...currentMeals, plato.meals[0]]);
-    setListaFiltrada(...mealList);
-    setResultsCount(listaFiltrada.length);
+    setListaFiltrada((currentMeals) => [...currentMeals, plato.meals[0]]);
   };
 
   useEffect(() => {
     if (nameIngredient) {
       setMealList([]);
+      
       getIngredientsByName(nameIngredient).then((meals) => {
         // Por cada array meals del objeto meals:
         meals.meals.forEach((meal) => {
           getMealsByName(meal.strMeal).then((plato) => {
             onMealList(plato);
+            setSearchButtonClicked(true);
           });
         });
       });
@@ -93,11 +95,12 @@ export default function CardMealsByIngredient({ nameIngredient }) {
             applyFilters={applyFilters}
             resetFilters={resetFilters}
           />
-          <MealList mealsToPrint={mealList} />
+          <MealList mealsToPrint={listaFiltrada} />
         </>
       ) : (
         <SearchResultsInfo
           numResultados={resultsCount}
+          searchButtonClicked={searchButtonClicked}
         />
       )}
     </div>
