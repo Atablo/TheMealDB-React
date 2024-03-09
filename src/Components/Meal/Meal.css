@@ -14,9 +14,8 @@
 } */
 
 body {
-    background-image: url(pepperbg.jpg);
+    background-image: url(../../../public/img/pepperbg.jpg);
 }
-
 
 .card__category--bg-rice {
     background-color: #ffffff;
