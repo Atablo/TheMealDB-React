@@ -1,17 +1,18 @@
-.infoPanel{
+
+.infoPanel--error{
     width: 75%;
     border-radius: 5px;
     text-align: center;
     padding:  10px;
 
-
-    
-}
-
-
-.error{
     background-color: rgb(209, 93, 93);
 }
-.success{
+.infoPanel--success{  
+    width: 75%;
+    border-radius: 5px;
+    text-align: center;
+    padding:  10px;
+
     background-color: rgb(35, 192, 48);
 }
+

@@ -8,7 +8,8 @@ import FiltersBox from '../FiltersBox/FiltersBox';
 
 export default function SearchByName() {
   const [formField, setFormField] = useState();
-  const [listaOriginal, setListaOriginal] = useState([]);
+  const [formEmptyError, setFormEmptyError] = useState('');
+  const [listaOriginal, setListaOriginal] = useState();
   const [listaFiltrada, setListaFiltrada] = useState([]);
   const [resultsCount, setResultsCount] = useState(0);
   const [searchButtonClicked, setSearchButtonClicked] = useState(false);
@@ -21,15 +22,20 @@ export default function SearchByName() {
     setFormField(event.target.value);
   };
   const searchMealsByName = () => {
-    getMealsByName(formField).then(
-      (json) => {
-        setListaOriginal(json.meals);
-        setListaFiltrada(json.meals);
-        countResults(json.meals);
-        // esto es para poner lo de la búsqueda a true
-        setSearchButtonClicked(true);
-      },
-    );
+    if (formField) {
+      setFormEmptyError('');
+      getMealsByName(formField).then(
+        (json) => {
+          setListaOriginal(json.meals);
+          setListaFiltrada(json.meals);
+          countResults(json.meals);
+          // esto es para poner lo de la búsqueda a true
+          setSearchButtonClicked(true);
+        },
+      );
+    } else {
+      setFormEmptyError('You did not introduce a meal name.Try again please');
+    }
   };
   // numereo de los resultados(habrá que ver si la lista tiene algo no?)
   useEffect(() => {
@@ -76,7 +82,7 @@ export default function SearchByName() {
   return (
     <>
       <div>
-        <h1 className="text-center">Seach a meal by it&apos;s name</h1>
+        <h1 className="text-center">Search a meal by it&apos;s name</h1>
       </div>
       <div className="row container mx-auto w-50 rounded justify-content-center">
         <input
@@ -86,6 +92,7 @@ export default function SearchByName() {
           id=""
           placeholder="Search by Name"
           onChange={formFieldHandler}
+          value={formField}
         />
         <button
           type="button"
@@ -97,12 +104,12 @@ export default function SearchByName() {
 
         </button>
       </div>
-
       <div className="container">
         {/* Esto es para que si existe algo más en la lista lo pinte */}
 
         {(listaOriginal ? (
           <>
+            <p className="text-danger text-center">{formEmptyError}</p>
             <FiltersBox
             // le voy a pasar la lisa original,
             // el seteador(para que imprima correctamente)
@@ -119,10 +126,13 @@ export default function SearchByName() {
             <MealList mealsToPrint={listaFiltrada} />
           </>
         ) : (
-          <SearchResultsInfo
-            numResultados={resultsCount}
-            searchButtonClicked={searchButtonClicked}
-          />
+          <>
+            <p className="text-danger text-center">{formEmptyError}</p>
+            <SearchResultsInfo
+              numResultados={resultsCount}
+              searchButtonClicked={searchButtonClicked}
+            />
+          </>
         ))}
 
       </div>

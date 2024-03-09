@@ -8,8 +8,8 @@ export default function SearchResultsInfo({ numResultados, searchButtonClicked }
   if (numResultados > 0 && searchButtonClicked) {
     return (
 
-      <div className="infoPanel success mx-auto my-3 w-100">
-        <p className="my-0 fs-5">Número de resultados: {numResultados}</p>
+      <div className="infoPanel--success mx-auto my-3 w-100">
+        <p className="my-0 fs-5">Results number: {numResultados}</p>
       </div>
 
     );
@@ -17,8 +17,8 @@ export default function SearchResultsInfo({ numResultados, searchButtonClicked }
   if (numResultados === 0 && searchButtonClicked) {
     return (
 
-      <div className="infoPanel error mx-auto my-3 w-100">
-        <p className="my-0 fs-5">No se encontraron resultados</p>
+      <div className="infoPanel--error mx-auto my-3 w-100">
+        <p className="my-0 fs-5">No results found</p>
       </div>
 
     );
