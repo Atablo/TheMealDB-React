@@ -27,30 +27,32 @@ export default function IngredientInput({ onNameIngredientChange }) {
   };
 
   return (
-    <form action="#" className="d-flex my-lg-0 py-5" id="searchByIngredient">
-      {/* Creamos un onBlur para que cuando el usuario salga del
-      formulario capture el nombre del ingrediente introducido */}
-      <input
-        className="form-control text-center"
-        type="text"
-        list="datalistOptions"
-        placeholder="Search a meal by an ingredient"
-        id="nombreIngrediente"
-        onBlur={(e) => setNameIngredient(e.target.value)}
-      />
+    <>
+      <form action="#" className="d-flex my-lg-0 pt-3 w-75 mx-auto" id="searchByIngredient">
+        {/* Creamos un onBlur para que cuando el usuario salga del
+        formulario capture el nombre del ingrediente introducido */}
+        <input
+          className="form-control text-center"
+          type="text"
+          list="datalistOptions"
+          placeholder="Search a meal by an ingredient"
+          id="nombreIngrediente"
+          onKeyUp={(e) => setNameIngredient(e.target.value)}
+        />
+        {/* Incluimos el componente DatalistIngredient con el id relacionado al input */}
+        <DatalistIngredients id="datalistOptions" />
+        {/* Cremos un onClick para controlar cuando se pulsa el botón y lo que tiene que hacer */}
+        <button
+          className="btn btn-success my-2 my-sm-0 mr-10 mx-2"
+          type="submit"
+          onClick={handleMealsByIngredient}
+        >
+          Search
+        </button>
+      </form>
       {/* Creamos un párrafo para mostrar el mensaje de error */}
-      <p className="error-feedback text-danger p-0 mb-0">{mensajeError}</p>
-      {/* Incluimos el componente DatalistIngredient con el id relacionado al input */}
-      <DatalistIngredients id="datalistOptions" />
-      {/* Cremos un onClick para controlar cuando se pulsa el botón y lo que tiene que hacer */}
-      <button
-        className="btn btn-success my-2 my-sm-0 mr-10 mx-2"
-        type="submit"
-        onClick={handleMealsByIngredient}
-      >
-        Search
-      </button>
-    </form>
+      <p className="error-feedback text-danger p-0 mb-0 text-center">{mensajeError}</p>
+    </>
   );
 }
 
