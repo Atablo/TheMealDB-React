@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import { Accordion } from 'react-bootstrap';
 import { region, getAllCategories } from '../../services/searchByName';
 import { etiquetas } from '../../services/searchByIngredient';
 
-// eslint-disable-next-line max-len
+// Componente hijo que se encarga de
 export default function FiltersBox({ applyFilters, resetFilters }) {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('--');
   const [regionSeleccionada, setRegionSeleccionada] = useState('--');
@@ -36,91 +37,98 @@ export default function FiltersBox({ applyFilters, resetFilters }) {
   // Función para aplicar los filtros
 
   return (
-    <div
-      className="alert alert-primary mt-3 mb-2 text-center"
-      role="alert"
-      id="filtros"
-    >
-      <h2 className="mb-4">Filters</h2>
-      <div className="w-75 mx-auto">
-        <div className="row">
-          <div className="col-md-4 mb-3">
-            <p className="form-label">Country</p>
-            <select
-              className="form-select text-center"
-              id="pais"
-              onChange={handleSelectedCountry}
-              value={regionSeleccionada}
-            >
-              <option value="--">--</option>
-              {region.map((regionItem) => (
-                <option value={regionItem} key={regionItem}>
-                  {regionItem}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="col-md-4 mb-3">
-            <p className="form-label">Meal category</p>
-            <select
-              className="form-select text-center"
-              id="categoria"
-              onChange={handleSelectedCategory}
-              value={categoriaSeleccionada}
-            >
-              <option value="--">--</option>
-              {console.log(categories)}
-              {categories.map((category) => (
-                <option value={category.strCategory} key={category.strCategory}>
-                  {category.strCategory}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="col-md-4 mb-3">
-            <p className="form-label">Tags</p>
-            <select
-              className="form-select text-center"
-              id="etiqueta"
-              onChange={handleSelectedTag}
-              value={etiquetaSelccionada}
-            >
-              <option value="--">--</option>
-              {etiquetas.map((etiqueta) => (
-                <option value={etiqueta} key={etiqueta}>
-                  {etiqueta}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </div>
+    <Accordion defaultActiveKey="1" className="filters-box mt-2">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header className="text-center"> <h2 className="mb-0 w-75">Filters <span className="d-inline h5">(Click here to unfold)</span></h2></Accordion.Header>
+        <Accordion.Body className="p-0">
+          <div
+            className="alert alert-primary mt-0 border-0 mb-0 rounded-0 text-center"
+            role="alert"
+            id="filtros"
+          >
+            <h2 className="mb-4">Filters</h2>
+            <div className="w-75 mx-auto">
+              <div className="row">
+                <div className="col-md-4 mb-3">
+                  <p className="form-label">Country</p>
+                  <select
+                    className="form-select text-center"
+                    id="pais"
+                    onChange={handleSelectedCountry}
+                    value={regionSeleccionada}
+                  >
+                    <option value="--">--</option>
+                    {region.map((regionItem) => (
+                      <option value={regionItem} key={regionItem}>
+                        {regionItem}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <p className="form-label">Meal category</p>
+                  <select
+                    className="form-select text-center"
+                    id="categoria"
+                    onChange={handleSelectedCategory}
+                    value={categoriaSeleccionada}
+                  >
+                    <option value="--">--</option>
+                    {console.log(categories)}
+                    {categories.map((category) => (
+                      <option value={category.strCategory} key={category.strCategory}>
+                        {category.strCategory}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <p className="form-label">Tags</p>
+                  <select
+                    className="form-select text-center"
+                    id="etiqueta"
+                    onChange={handleSelectedTag}
+                    value={etiquetaSelccionada}
+                  >
+                    <option value="--">--</option>
+                    {etiquetas.map((etiqueta) => (
+                      <option value={etiqueta} key={etiqueta}>
+                        {etiqueta}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
 
-      <button
-        className="btn btn-success mt-4"
-        id="applyFilters"
-        type="button"
-        onClick={() => applyFilters(
-          categoriaSeleccionada,
-          regionSeleccionada,
-          etiquetaSelccionada,
-        )}
-      >
-        Apply Filters
-      </button>
-      <button
-        className="btn btn-danger mt-4 ms-2"
-        id="resetFilters"
-        type="button"
-        onClick={() => resetFilters(
-          setCategoriaSeleccionada,
-          setRegionSeleccionada,
-          setEtiquetaSeleccionada,
-        )}
-      >
-        Reset Filters
-      </button>
-    </div>
+            <button
+              className="btn btn-success mt-4"
+              id="applyFilters"
+              type="button"
+              onClick={() => applyFilters(
+                categoriaSeleccionada,
+                regionSeleccionada,
+                etiquetaSelccionada,
+              )}
+            >
+              Apply Filters
+            </button>
+            <button
+              className="btn btn-danger mt-4 ms-2"
+              id="resetFilters"
+              type="button"
+              onClick={() => resetFilters(
+                setCategoriaSeleccionada,
+                setRegionSeleccionada,
+                setEtiquetaSeleccionada,
+              )}
+            >
+              Reset Filters
+            </button>
+          </div>
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
   );
 }
 

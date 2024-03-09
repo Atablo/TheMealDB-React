@@ -8,6 +8,7 @@ root.render(
   // Así toda la aplicación estará envuelta con BrowserRouter
   <StrictMode>
     <BrowserRouter>
+      {/* Incluimos el componente principal en la página */}
       <App />
     </BrowserRouter>
   </StrictMode>,

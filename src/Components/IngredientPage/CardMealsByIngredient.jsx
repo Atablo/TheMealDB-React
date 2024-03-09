@@ -8,16 +8,23 @@ import MealList from '../MealList/MealList';
 import FiltersBox from '../FiltersBox/FiltersBox';
 import SearchResultsInfo from '../SearchResultsInfo/SearchResultsInfo';
 
+// Componente encargado de mostrar la lista de cards y filtrar las comidas
 export default function CardMealsByIngredient({ nameIngredient }) {
+  // Creamos un useState de la lista original que almacene las comidas
   const [mealList, setMealList] = useState([]);
 
+  // Creamos otro useState que almacenará lo mismo que mealList pero como copia
   const [listaFiltrada, setListaFiltrada] = useState([]);
   const [resultsCount, setResultsCount] = useState(0);
   const [searchButtonClicked, setSearchButtonClicked] = useState(false);
 
   const onMealList = (plato) => {
     setMealList((currentMeals) => [...currentMeals, plato.meals[0]]);
-    setListaFiltrada((currentMeals) => [...currentMeals, plato.meals[0]]);
+    setListaFiltrada((currentMeals) => {
+      const newListaFiltrada = [...currentMeals, plato.meals[0]];
+      setResultsCount(newListaFiltrada.length);
+      return newListaFiltrada;
+    });
   };
 
   useEffect(() => {
@@ -44,7 +51,6 @@ export default function CardMealsByIngredient({ nameIngredient }) {
     // hacemos una copia del array original y trabajamos con ella
     // setListaFiltrada([...listaOriginal]);
     let listaAux = [...mealList];
-
     /*  Aquí haremos las comprobaciones */
     if (categoriaSeleccionada !== '--') {
       listaAux = listaAux.filter(
@@ -95,6 +101,10 @@ export default function CardMealsByIngredient({ nameIngredient }) {
               // y además el metodo para cuando lo reseteen
               applyFilters={applyFilters}
               resetFilters={resetFilters}
+            />
+            <SearchResultsInfo
+              numResultados={resultsCount}
+              searchButtonClicked={searchButtonClicked}
             />
           </div>
           <MealList mealsToPrint={listaFiltrada} />

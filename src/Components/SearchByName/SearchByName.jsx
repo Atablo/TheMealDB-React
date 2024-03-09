@@ -31,9 +31,13 @@ export default function SearchByName() {
       },
     );
   };
-  // numereo de los resultados
+  // numereo de los resultados(habrá que ver si la lista tiene algo no?)
   useEffect(() => {
-    setResultsCount(listaFiltrada.length);
+    if (listaFiltrada) {
+      setResultsCount(listaFiltrada.length);
+    } else {
+      setResultsCount(0);
+    }
   }, [listaFiltrada]);
 
   const applyFilters = (categoriaSeleccionada, regionSeleccionada, etiquetaSelccionada) => {
@@ -74,9 +78,10 @@ export default function SearchByName() {
       <div>
         <h1 className="text-center">Seach a meal by it&apos;s name</h1>
       </div>
-      <div className="row w-75 mx-auto">
+      <div className="row container mx-auto w-50 rounded justify-content-center">
         <input
           type="text"
+          className="w-50 me-1 rounded-left"
           name=""
           id=""
           placeholder="Search by Name"
@@ -84,40 +89,42 @@ export default function SearchByName() {
         />
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary w-25 rounded-left"
           onClick={searchMealsByName}
           aria-label="Search"
         >
-          <p className="mb-0 fw-bold">Search <CiSearch /></p>
+          <p className="mb-0 fw-bold rounded-right">Search <CiSearch /></p>
 
         </button>
       </div>
 
       <div className="container">
         {/* Esto es para que si existe algo más en la lista lo pinte */}
-        {resultsCount
-          ? (
-            <>
-              <FiltersBox
-                // le voy a pasar la lisa original,
-                // el seteador(para que imprima correctamente)
-                // y además el metodo para cuando lo reseteen
-                applyFilters={applyFilters}
-                resetFilters={resetFilters}
-              />
-              <SearchResultsInfo
-                numResultados={resultsCount}
-                searchButtonClicked={searchButtonClicked}
-              />
-              <MealList mealsToPrint={listaFiltrada} />
-            </>
-          )
-          : (
+
+        {(listaOriginal ? (
+          <>
+            <FiltersBox
+            // le voy a pasar la lisa original,
+            // el seteador(para que imprima correctamente)
+            // y además el metodo para cuando lo reseteen
+              applyFilters={applyFilters}
+              resetFilters={resetFilters}
+              countResults={countResults}
+              className="w-75"
+            />
             <SearchResultsInfo
               numResultados={resultsCount}
               searchButtonClicked={searchButtonClicked}
             />
-          )}
+            <MealList mealsToPrint={listaFiltrada} />
+          </>
+        ) : (
+          <SearchResultsInfo
+            numResultados={resultsCount}
+            searchButtonClicked={searchButtonClicked}
+          />
+        ))}
+
       </div>
     </>
   );
