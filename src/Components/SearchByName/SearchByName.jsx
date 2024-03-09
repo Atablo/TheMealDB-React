@@ -79,6 +79,13 @@ export default function SearchByName() {
     setRegionSeleccionada('--');
     setEtiquetaSeleccionada('--');
   };
+
+  const handleKeyUp = (event) => {
+    if (event.key === 'Enter') {
+      searchMealsByName();
+    }
+  };
+
   return (
     <>
       <div>
@@ -92,7 +99,7 @@ export default function SearchByName() {
           id=""
           placeholder="Search by Name"
           onChange={formFieldHandler}
-          value={formField}
+          onKeyUp={handleKeyUp}
         />
         <button
           type="button"

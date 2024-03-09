@@ -45,6 +45,15 @@ export default function CardMealsByIngredient({ nameIngredient }) {
     }
   }, [nameIngredient]);
 
+  // numereo de los resultados(habrá que ver si la lista tiene algo no?)
+  useEffect(() => {
+    if (listaFiltrada) {
+      setResultsCount(listaFiltrada.length);
+    } else {
+      setResultsCount(0);
+    }
+  }, [listaFiltrada]);
+
   const applyFilters = (
     categoriaSeleccionada,
     regionSeleccionada,
@@ -94,7 +103,7 @@ export default function CardMealsByIngredient({ nameIngredient }) {
 
   return (
     <div>
-      {resultsCount || nameIngredient ? (
+      {nameIngredient ? (
         <>
           <div className="container">
             <FiltersBox

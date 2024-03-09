@@ -74,7 +74,6 @@ export default function FiltersBox({ applyFilters, resetFilters }) {
                     value={categoriaSeleccionada}
                   >
                     <option value="--">--</option>
-                    {console.log(categories)}
                     {categories.map((category) => (
                       <option value={category.strCategory} key={category.strCategory}>
                         {category.strCategory}
