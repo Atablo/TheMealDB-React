@@ -32,13 +32,15 @@ export default function CardMealsByIngredient({ nameIngredient }) {
       setMealList([]);
       setListaFiltrada([]);
       getIngredientsByName(nameIngredient).then((meals) => {
-        // Por cada array meals del objeto meals:
-        meals.meals.forEach((meal) => {
-          getMealsByName(meal.strMeal).then((plato) => {
-            onMealList(plato);
-            setSearchButtonClicked(true);
+        if (meals.meals) {
+          // Por cada array meals del objeto meals:
+          meals.meals.forEach((meal) => {
+            getMealsByName(meal.strMeal).then((plato) => {
+              onMealList(plato);
+              setSearchButtonClicked(true);
+            });
           });
-        });
+        }
       });
     }
   }, [nameIngredient]);
@@ -101,6 +103,7 @@ export default function CardMealsByIngredient({ nameIngredient }) {
               // y además el metodo para cuando lo reseteen
               applyFilters={applyFilters}
               resetFilters={resetFilters}
+              className="w-75"
             />
             <SearchResultsInfo
               numResultados={resultsCount}

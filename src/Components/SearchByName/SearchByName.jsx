@@ -76,7 +76,7 @@ export default function SearchByName() {
   return (
     <>
       <div>
-        <h1 className="text-center">Seach a meal by it&apos;s name</h1>
+        <h1 className="text-center">Search a meal by it&apos;s name</h1>
       </div>
       <div className="row container mx-auto w-50 rounded justify-content-center">
         <input
@@ -109,7 +109,6 @@ export default function SearchByName() {
             // y además el metodo para cuando lo reseteen
               applyFilters={applyFilters}
               resetFilters={resetFilters}
-              countResults={countResults}
               className="w-75"
             />
             <SearchResultsInfo
