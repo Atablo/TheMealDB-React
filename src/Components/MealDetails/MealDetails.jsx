@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Error from '../../Componentes/Error';
+import Error from '../Error/Error';
 import MealList from '../MealList/MealList';
 import { establishFlag } from '../../services/searchByName';
 import { getMealDetailsById } from '../../services/searchByIngredient';

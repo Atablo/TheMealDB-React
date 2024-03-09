@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {
   getIngredientsByName,
   getMealsByName,
-} from '../../services/searchByIngredient';
-import MealList from '../MealList/MealList';
-import FiltersBox from '../FiltersBox/FiltersBox';
-import SearchResultsInfo from '../SearchResultsInfo/SearchResultsInfo';
+} from '../../../services/searchByIngredient';
+import MealList from '../../MealList/MealList';
+import FiltersBox from '../../FiltersBox/FiltersBox';
+import SearchResultsInfo from '../../SearchResultsInfo/SearchResultsInfo';
 
 // Componente encargado de mostrar la lista de cards y filtrar las comidas
 export default function CardMealsByIngredient({ nameIngredient }) {
@@ -27,6 +27,15 @@ export default function CardMealsByIngredient({ nameIngredient }) {
     });
   };
 
+  // numereo de los resultados(habrá que ver si la lista tiene algo no?)
+  useEffect(() => {
+    if (listaFiltrada) {
+      setResultsCount(listaFiltrada.length);
+    } else {
+      setResultsCount(0);
+    }
+  }, [listaFiltrada]);
+
   useEffect(() => {
     if (nameIngredient) {
       setMealList([]);
@@ -44,15 +53,6 @@ export default function CardMealsByIngredient({ nameIngredient }) {
       });
     }
   }, [nameIngredient]);
-
-  // numereo de los resultados(habrá que ver si la lista tiene algo no?)
-  useEffect(() => {
-    if (listaFiltrada) {
-      setResultsCount(listaFiltrada.length);
-    } else {
-      setResultsCount(0);
-    }
-  }, [listaFiltrada]);
 
   const applyFilters = (
     categoriaSeleccionada,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { showRandomMeals } from '../services/searchByIngredient';
-import '../Components/Meal/Meal.css';
-import MealList from '../Components/MealList/MealList';
+import { showRandomMeals } from '../../services/searchByIngredient';
+import '../Meal/Meal.css';
+import MealList from '../MealList/MealList';
 
 export default function RamdomMealList() {
   const [recipes, setRecipes] = useState([]); // Estado para almacenar los platos de comida

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import MealList from '../MealList/MealList';
-import { getIngredientsByName, getMealsByName } from '../../services/searchByIngredient';
+import MealList from '../../MealList/MealList';
+import { getIngredientsByName, getMealsByName } from '../../../services/searchByIngredient';
 
 function IngredientRecipesPage() {
   const { ingredient } = useParams();

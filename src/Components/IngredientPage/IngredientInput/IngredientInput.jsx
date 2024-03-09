@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import DatalistIngredients from './DatalistIngredients';
+import DatalistIngredients from '../DatalistIngredients/DatalistIngredients';
 
 // Componente encargado del input del SearchByIngredient recibiendo el setIngredient del padre
 export default function IngredientInput({ onNameIngredientChange }) {

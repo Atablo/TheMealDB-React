@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import IngredientInput from './IngredientInput';
-import CardMealsByIngredient from './CardMealsByIngredient';
+import IngredientInput from '../IngredientInput/IngredientInput';
+import CardMealsByIngredient from '../CardMealsByIngredient/CardMealsByIngredient';
 
 // Componente que se encarga de la busqueda por ingrediente
 export default function SearchByIngredient() {

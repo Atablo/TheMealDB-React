@@ -1,5 +1,5 @@
 import React from 'react';
-import RamdomMealList from './RamdomMealList';
+import RamdomMealList from '../RandomMealList/RandomMealList';
 
 export default function Home() {
   return (
