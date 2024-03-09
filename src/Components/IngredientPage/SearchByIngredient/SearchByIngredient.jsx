@@ -12,7 +12,9 @@ export default function SearchByIngredient() {
       <div className="flex-column w-40">
         <div className="w-50 mx-auto">
           <div>
-            <h1 className="text-center">Search a meal by it&apos;s ingredient</h1>
+            <h1 className="text-center">
+              Search a meal by it&apos;s ingredient
+            </h1>
           </div>
           {/* Incluimos el componente IngredientInput pasandole el setIngredient del useState */}
           <IngredientInput onNameIngredientChange={setIngredient} />

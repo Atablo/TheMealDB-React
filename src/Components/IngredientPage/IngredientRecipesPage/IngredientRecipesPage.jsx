@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MealList from '../../MealList/MealList';
-import { getIngredientsByName, getMealsByName } from '../../../services/searchByIngredient';
+import {
+  getIngredientsByName,
+  getMealsByName,
+} from '../../../services/Async Functions/AsyncFunctions';
 
 // Componente encargado de mostrar la página de las comidas que contienen un ingrediente en concreto
 function IngredientRecipesPage() {
@@ -34,14 +37,19 @@ function IngredientRecipesPage() {
               } catch (detailError) {
                 // En caso de error al buscar los detalles de una
                 // receta, se muestra el error al usuario
-                console.error(`Error fetching details for recipe ${recipe.strMeal}:`, detailError);
+                console.error(
+                  `Error fetching details for recipe ${recipe.strMeal}:`,
+                  detailError,
+                );
                 return null;
               }
             }),
           );
 
           // Creamos una variable para filtrar las recetas y eliminar aquellas que no tengan comidas
-          const filteredDetailedRecipes = detailedRecipesData.filter((recipe) => recipe !== null);
+          const filteredDetailedRecipes = detailedRecipesData.filter(
+            (recipe) => recipe !== null,
+          );
           // Hacemos que detailedRecipes sea igual a filteredDetailedRecipes
           setDetailedRecipes(filteredDetailedRecipes);
         }
@@ -63,7 +71,9 @@ function IngredientRecipesPage() {
         </h4>
         {/* Si la lista de comidas fltrada no está vacia incluimos
         el componente MealList pasandole la lista de comidas */}
-        {detailedRecipes.length > 0 && <MealList mealsToPrint={detailedRecipes} />}
+        {detailedRecipes.length > 0 && (
+          <MealList mealsToPrint={detailedRecipes} />
+        )}
       </div>
     </div>
   );

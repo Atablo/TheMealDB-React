@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
-import { region, getAllCategories } from '../../services/searchByName';
-import { etiquetas } from '../../services/searchByIngredient';
+import { getAllCategories } from '../../services/Async Functions/AsyncFunctions';
+import { region, etiquetas } from '../../services/DataArrays/DataArrays';
 
 // Componente hijo que se encarga de mostrar el listado de filtros
 export default function FiltersBox({ applyFilters, resetFilters }) {

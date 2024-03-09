@@ -28,7 +28,11 @@ export default function IngredientInput({ onNameIngredientChange }) {
 
   return (
     <>
-      <form action="#" className="d-flex my-lg-0 pt-3 w-75 mx-auto" id="searchByIngredient">
+      <form
+        action="#"
+        className="d-flex my-lg-0 pt-3 w-75 mx-auto"
+        id="searchByIngredient"
+      >
         {/* Creamos un onBlur para que cuando el usuario salga del
         formulario capture el nombre del ingrediente introducido */}
         <input
@@ -51,7 +55,9 @@ export default function IngredientInput({ onNameIngredientChange }) {
         </button>
       </form>
       {/* Creamos un párrafo para mostrar el mensaje de error */}
-      <p className="error-feedback text-danger p-0 mb-0 text-center">{mensajeError}</p>
+      <p className="error-feedback text-danger p-0 mb-0 text-center">
+        {mensajeError}
+      </p>
     </>
   );
 }

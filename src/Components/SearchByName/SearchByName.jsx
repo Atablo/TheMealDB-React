@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
-import { getMealsByName } from '../../services/searchByName';
+import { getMealsByName } from '../../services/Async Functions/AsyncFunctions';
 import MealList from '../MealList/MealList';
 import SearchResultsInfo from '../SearchResultsInfo/SearchResultsInfo';
 import FiltersBox from '../FiltersBox/FiltersBox';

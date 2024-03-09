@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   getIngredientsByName,
   getMealsByName,
-} from '../../../services/searchByIngredient';
+} from '../../../services/Async Functions/AsyncFunctions';
 import MealList from '../../MealList/MealList';
 import FiltersBox from '../../FiltersBox/FiltersBox';
 import SearchResultsInfo from '../../SearchResultsInfo/SearchResultsInfo';

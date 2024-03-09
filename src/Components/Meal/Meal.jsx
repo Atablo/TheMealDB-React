@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { establishFlag } from '../../services/searchByName';
+import { establishFlag } from '../../services/Async Functions/AsyncFunctions';
 import './Meal.css';
 
+// Componente encargado de mostrar los cards de las comidas
 export default function Meal({ recipe }) {
+  // Creamos una función getColorForTag pasandole la categoria
   const getColorForTag = (tag) => {
+    // Creamos una lista que tenga todas las categorias y cada uno con el color asignado
     const tagColors = {
       Rice: 'card__category--bg-rice',
       Alcoholic: 'card__category--bg-alcoholic',
@@ -86,10 +89,13 @@ export default function Meal({ recipe }) {
 
     };
 
+    // Devolvemos el color para la categoria correspondiente y si no la hay el color será gris
     return tagColors[tag] || 'bg-secondary';
   };
 
   return (
+    // Envolvemos el contenido en un Link para redireccionar
+    // al detalle de la comida cuando se haga clic
     <Link to={`/meal/${recipe.idMeal}`} className="text-decoration-none">
       <div className="card">
         <div className="row">
@@ -104,6 +110,7 @@ export default function Meal({ recipe }) {
           <div className="col-sm-6 ps-0">
             <div className="card-body h-100 ps-0">
               <div className="d-flex justify-content-around shadow p-3 rounded-5">
+                {/* Invocamos la función getColorForTag pasandole el nombre de la categoría */}
                 <div className={`w-50 d-flex justify-content-center rounded-4 align-items-center ${getColorForTag(recipe.strCategory)}`}>
                   <strong className="align-items-center type">{recipe.strCategory}</strong>
                 </div>
@@ -111,6 +118,8 @@ export default function Meal({ recipe }) {
                   <div className="w-50 d-flex justify-content-center align-items-center d-none d-md-flex">
                     <strong className="fs-6 country">{recipe.strArea}</strong>
                   </div>
+                  {/* Llamamos la función de establishFlag
+                  pasandole el pais para mostrar su bandera */}
                   <img src={`${establishFlag(recipe.strArea)}`} alt="" className="ml-2 mr-2 d-sm-flex countryFlag" />
                 </div>
               </div>
@@ -120,7 +129,10 @@ export default function Meal({ recipe }) {
               <div className="row flex-wrap justify-content-center align-content-stretch align-items-end shadow rounded-3 m-2 mt-3">
                 <h5 className="m-0 bg-info-subtle rounded-2 p-2 text-center">Tags</h5>
                 <div className="tags-container d-flex flex-wrap justify-content-center align-items-stretch text-center rounded-3 tags py-4">
+                  {/* Si la comida contiene etiquetas, lo
+                  separamos por elementos dividos por comas */}
                   {recipe.strTags ? recipe.strTags.split(',').map((tag) => (
+                    // Y renderizamos cada etiqueta en un span quitando los espacios
                     <span key={tag} className="badge bg-secondary m-1">{tag.trim()}</span>
                   )) : 'No tags'}
                 </div>

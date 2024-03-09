@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllIngredients } from '../../../services/searchByIngredient';
+import { getAllIngredients } from '../../../services/Async Functions/AsyncFunctions';
 
 // Componente hijo encargado de mostrar las sugerencias de los ingredientes que hay en el input
 export default function DatalistIngredients() {

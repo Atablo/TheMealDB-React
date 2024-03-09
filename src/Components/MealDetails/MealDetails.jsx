@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Error from '../Error/Error';
 import MealList from '../MealList/MealList';
-import { establishFlag } from '../../services/searchByName';
-import { getMealDetailsById } from '../../services/searchByIngredient';
+import { establishFlag, getMealDetailsById } from '../../services/Async Functions/AsyncFunctions';
 
 function MealDetails() {
   const navigate = useNavigate();

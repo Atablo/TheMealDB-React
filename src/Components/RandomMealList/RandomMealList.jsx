@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { showRandomMeals } from '../../services/searchByIngredient';
-import '../Meal/Meal.css';
+import { showRandomMeals } from '../../services/Async Functions/AsyncFunctions';
 import MealList from '../MealList/MealList';
 
 export default function RamdomMealList() {
@@ -29,8 +28,6 @@ export default function RamdomMealList() {
     // Hacemos un setRecipes de randomMeals para que
     // actualice el estado y renderize la nueva información
     setRecipes(randomMeals);
-
-    console.log(randomMeals);
   };
 
   // useEffect que se ejecuta cuando el componente se monta la primera vez

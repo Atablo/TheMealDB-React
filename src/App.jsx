@@ -28,7 +28,7 @@ function App() {
           element={<MealDetails />}
         />
         {/* La ruta /ingredient-recipes/ingredient incluirá el componente
-        IngredientRecipesPage con el ingrediente correspondiente */}
+        IngredientRecipesPage con el resultado de las comidas que contienen ese ingrediente */}
         <Route
           path="/ingredient-recipes/:ingredient"
           element={<IngredientRecipesPage />}
