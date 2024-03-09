@@ -41,6 +41,7 @@ export default function RamdomMealList() {
     <div className="bg-img">
       <div className="container">
         <div className="row">
+          {/* Llamamos al componente MealList pasandole la lista de meals a imprimir */}
           <MealList mealsToPrint={recipes} />
         </div>
       </div>
