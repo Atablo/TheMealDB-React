@@ -27,15 +27,6 @@ export default function CardMealsByIngredient({ nameIngredient }) {
     });
   };
 
-  // numereo de los resultados(habrá que ver si la lista tiene algo no?)
-  useEffect(() => {
-    if (listaFiltrada) {
-      setResultsCount(listaFiltrada.length);
-    } else {
-      setResultsCount(0);
-    }
-  }, [listaFiltrada]);
-
   useEffect(() => {
     if (nameIngredient) {
       setMealList([]);
@@ -49,6 +40,9 @@ export default function CardMealsByIngredient({ nameIngredient }) {
               setSearchButtonClicked(true);
             });
           });
+        } else {
+          setResultsCount(0);
+          setSearchButtonClicked(true);
         }
       });
     }
@@ -103,7 +97,7 @@ export default function CardMealsByIngredient({ nameIngredient }) {
 
   return (
     <div>
-      {nameIngredient ? (
+      {nameIngredient && listaFiltrada.length > 0 ? (
         <>
           <div className="container">
             <FiltersBox
@@ -122,10 +116,12 @@ export default function CardMealsByIngredient({ nameIngredient }) {
           <MealList mealsToPrint={listaFiltrada} />
         </>
       ) : (
-        <SearchResultsInfo
-          numResultados={resultsCount}
-          searchButtonClicked={searchButtonClicked}
-        />
+        <div className="container">
+          <SearchResultsInfo
+            numResultados={resultsCount}
+            searchButtonClicked={searchButtonClicked}
+          />
+        </div>
       )}
     </div>
   );
