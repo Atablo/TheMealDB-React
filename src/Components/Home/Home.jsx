@@ -1,6 +1,7 @@
 import React from 'react';
 import RamdomMealList from '../RandomMealList/RandomMealList';
 
+// Componente que se encarga de mostrar la página de inicio al entrar a la app
 export default function Home() {
   return (
     <div>

@@ -145,6 +145,7 @@ export default function Meal({ recipe }) {
   );
 }
 
+// Ponemos los propTypes indicando el tipo que son los parametros de recipe
 Meal.propTypes = {
   recipe: PropTypes.shape({
     strSource: PropTypes.string,
@@ -158,6 +159,7 @@ Meal.propTypes = {
   }),
 };
 
+// Y tambien declaramos los propTypes por defecto
 Meal.defaultProps = {
   recipe: {
     strSource: '',

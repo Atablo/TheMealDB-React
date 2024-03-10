@@ -122,7 +122,7 @@ export default function CardMealsByIngredient({ nameIngredient }) {
   };
 
   return (
-    <div>
+    <>
       {/* Operador ternario que si se cumple que si el nombre
       de ingrediente no está vacio y el array tiene elementos: */}
       {nameIngredient && listaFiltrada.length > 0 ? (
@@ -159,11 +159,11 @@ export default function CardMealsByIngredient({ nameIngredient }) {
           />
         </div>
       )}
-    </div>
+    </>
   );
 }
 
-// Ponemos los propTypes indicando que el parametro nameIngredient
+// Ponemos los propTypes indicando que el parametro nameIngredient es string
 CardMealsByIngredient.propTypes = {
   nameIngredient: PropTypes.string,
 };

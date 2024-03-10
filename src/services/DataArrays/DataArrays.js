@@ -1,71 +1,41 @@
+// Creamos el array que va a contener todos los nombres de los paises
 export const region = [
   'American',
-
   'Argelian',
-
   'Argentinian',
-
   'Arabian',
-
   'British',
-
   'Canadian',
-
   'Chinese',
-
   'Croatian',
-
   'Dutch',
-
   'Egyptian',
-
   'Filipino',
-
   'French',
-
   'Greek',
-
   'Indian',
-
   'Irish',
-
   'Italian',
-
   'Jamaican',
-
   'Japanese',
-
   'Kenyan',
-
   'Malaysian',
-
   'Mexican',
-
   'Moroccan',
-
   'Norwegian',
-
   'Polish',
-
   'Portuguese',
-
   'Russian',
-
   'Slovakian',
-
   'Spanish',
-
   'Syrian',
-
   'Thai',
-
   'Tunisian',
-
   'Turkish',
-
   'Vietnamese',
 ];
-// eslint-disable-next-line no-unused-vars
+
+// Creamos el array que va a contener el codigo de los nombres de paises correspondientes
 export const countryFlags = [
   'us',
   'dz',
@@ -102,6 +72,7 @@ export const countryFlags = [
   'vn',
 ];
 
+// Creamos el array que va a contener todos nombres de las etiquetas que podemos
 export const etiquetas = [
   'Rice',
   'Sidedish',

@@ -47,7 +47,12 @@ export default function FiltersBox({ applyFilters, resetFilters }) {
       <Accordion.Item eventKey="0">
         {/* Establecemos la cabecera y en el cuerpo es
         donde metemos la chicha de nuestro proyecto */}
-        <Accordion.Header className="text-center"> <h2 className="mb-0 w-75">Filters <span className="d-inline h5">(Click here to unfold)</span></h2></Accordion.Header>
+        <Accordion.Header className="text-center">
+          {' '}
+          <h2 className="mb-0 w-75">
+            Filters <span className="d-inline h5">(Click here to unfold)</span>
+          </h2>
+        </Accordion.Header>
         <Accordion.Body className="p-0">
           <div
             className="alert alert-primary mt-0 border-0 mb-0 rounded-0 text-center"
@@ -68,7 +73,6 @@ export default function FiltersBox({ applyFilters, resetFilters }) {
                     onChange={handleSelectedCountry}
                     value={regionSeleccionada}
                   >
-
                     <option value="--">--</option>
                     {/* Ahora imprimo las opciones de regiones según el map con el array region */}
                     {region.map((regionItem) => (
@@ -94,7 +98,10 @@ export default function FiltersBox({ applyFilters, resetFilters }) {
                       que hemos obtenido al inicio */}
 
                     {categories.map((category) => (
-                      <option value={category.strCategory} key={category.strCategory}>
+                      <option
+                        value={category.strCategory}
+                        key={category.strCategory}
+                      >
                         {category.strCategory}
                       </option>
                     ))}
@@ -123,7 +130,7 @@ export default function FiltersBox({ applyFilters, resetFilters }) {
                 </div>
               </div>
             </div>
-            
+
             <button
               className="btn btn-success mt-4"
               id="applyFilters"

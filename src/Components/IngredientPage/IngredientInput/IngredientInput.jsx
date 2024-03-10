@@ -45,7 +45,8 @@ export default function IngredientInput({ onNameIngredientChange }) {
         />
         {/* Incluimos el componente DatalistIngredient con el id relacionado al input */}
         <DatalistIngredients id="datalistOptions" />
-        {/* Cremos un onClick para controlar cuando se pulsa el botón y lo que tiene que hacer */}
+        {/* Cremos un onClick para controlar cuando se
+        pulsa el botón con el handleMealsByIngredient */}
         <button
           className="btn btn-success my-2 my-sm-0 mr-10 mx-2"
           type="submit"

@@ -6,7 +6,7 @@ import {
   getMealsByName,
 } from '../../../services/Async Functions/AsyncFunctions';
 
-// Componente encargado de mostrar la página de las comidas que contienen un ingrediente en concreto
+// Función encargado de mostrar la página de las comidas que contienen un ingrediente en concreto
 function IngredientRecipesPage() {
   // Creamos una variable que extrae el parametro del ingrediente de la URL
   const { ingredient } = useParams();
@@ -36,7 +36,7 @@ function IngredientRecipesPage() {
                 return detailData.meals ? detailData.meals[0] : null;
               } catch (detailError) {
                 // En caso de error al buscar los detalles de una
-                // receta, se muestra el error al usuario
+                // receta, se muestra un error
                 console.error(
                   `Error fetching details for recipe ${recipe.strMeal}:`,
                   detailError,
@@ -79,4 +79,5 @@ function IngredientRecipesPage() {
   );
 }
 
+// Exportamos la función como componente
 export default IngredientRecipesPage;
