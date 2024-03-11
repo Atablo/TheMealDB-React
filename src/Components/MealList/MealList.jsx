@@ -8,7 +8,7 @@ export default function MealList({ mealsToPrint }) {
   /* Retornaremos un container con un div */
   return (
     <div className="container">
-      <div className="row d-flex">
+      <div className="row d-flex justify-content-center">
         {/* Ahora vamos a construir cada columna con su componente
         correspondiente de Meal(asociada a la columna) */}
         {mealsToPrint.map((meal) => (
