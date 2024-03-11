@@ -1,13 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Link, Route, Routes } from 'react-router-dom';
-import Home from './Componentes/Home';
-import SearchPage from './Componentes/SearchPage';
-import Tacos from './Componentes/Tacos';
-import TacoDetails from './Componentes/TacoDetails';
-import Header from './Componentes/Header/Header';
-
-=======
 import { Route, Routes } from 'react-router-dom';
 import Error from './Components/Error/Error';
 import Home from './Components/Home/Home';
@@ -18,31 +9,10 @@ import SearchByName from './Components/SearchByName/SearchByName';
 import IngredientRecipesPage from './Components/IngredientPage/IngredientRecipesPage/IngredientRecipesPage';
 
 // Programa principal
->>>>>>> origin/johnny
 function App() {
   return (
     <div className="App">
       <header>
-<<<<<<< HEAD
-        <Header />
-        <nav>
-          <ul>
-            <li><Link to="/searchPage">SearchPage</Link></li>
-            <li><Link to="/">Home</Link></li>
-          </ul>
-        </nav>
-      </header>
-      <p>Mi aplicación de react</p>
-
-      {/* Esto de abajo no está "pintado,son solo indicaciones de las rutas" */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/searchPage" element={<SearchPage />} />
-        <Route path="/tacos/:nombreDelTaco" element={<Tacos />}>
-          <Route path="details" element={<TacoDetails />} />
-        </Route>
-        <Route path="*" element={<h1>Lo sentimos!! no hemos encontrado la ruta que has específicado</h1>} />
-=======
         {/* Incluimos el componente Header */}
         <Header />
       </header>
@@ -70,7 +40,6 @@ function App() {
           path="*"
           element={<Error />}
         />
->>>>>>> origin/johnny
       </Routes>
     </div>
   );
