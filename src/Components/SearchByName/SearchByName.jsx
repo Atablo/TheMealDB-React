@@ -62,7 +62,7 @@ export default function SearchByName() {
       setFormEmptyError('You did not introduce a meal name.Try again please');
     }
   };
-  /* ahora cada vez que cambiemos la lista filtrada establecemos el contador a longitud
+  /* Ahora cada vez que cambiemos la lista filtrada establecemos el contador a longitud
       de la lista filtrada,si no tiene nada esta lista le ponemos a 0,cuando cambie la lista
       filtrada volveremos a actualizar el valor del resultsCount */
   useEffect(() => {
@@ -73,6 +73,7 @@ export default function SearchByName() {
     }
   }, [listaFiltrada]);
 
+  /* Esta será la función de aplicar filtros */
   const applyFilters = (categoriaSeleccionada, regionSeleccionada, etiquetaSelccionada) => {
     // hacemos una copia del array original y trabajamos con ella
     let listaAux = [...listaOriginal];
@@ -134,7 +135,7 @@ export default function SearchByName() {
           onChange={formFieldHandler}
           onKeyUp={handleKeyUp}
         />
-        {/* También manejamos el evento de click para que busque */}
+        {/* También manejamos el evento de click para que busque(al igual que el enter) */}
         <button
           type="button"
           className="btn btn-primary w-25 rounded-left"

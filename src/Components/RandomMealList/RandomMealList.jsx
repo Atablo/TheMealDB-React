@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { showRandomMeals } from '../../services/Async Functions/AsyncFunctions';
 import MealList from '../MealList/MealList';
 
+/* Este es el componente encargado de renderizar 8 platos aleatorios */
 export default function RamdomMealList() {
   const [recipes, setRecipes] = useState([]); // Estado para almacenar los platos de comida
 
