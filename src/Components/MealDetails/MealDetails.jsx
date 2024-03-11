@@ -78,7 +78,7 @@ function MealDetails() {
     navigate(`/ingredient-recipes/${ingredient}`);
   };
 
-  //CREO QUE NO SIRVE PARA NADA PORQUE NO HAY ENTER, SOLO HAY CLIC (EL DE ARRIBA)
+  // CREO QUE NO SIRVE PARA NADA PORQUE NO HAY ENTER, SOLO HAY CLIC (EL DE ARRIBA)
   const handleIngredientKeyDown = (event, ingredient) => {
     if (event.key === 'Enter') {
       fetchRelatedRecipes(ingredient);
