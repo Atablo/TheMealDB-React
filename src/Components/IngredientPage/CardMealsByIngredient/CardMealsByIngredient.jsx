@@ -100,6 +100,10 @@ export default function CardMealsByIngredient({ nameIngredient }) {
         return false; // Devolver false si item.strTags no existe o es null
       });
     }
+
+    // Hacemos que el resultsCount sea igual al numero de comidas que haya
+    setResultsCount(listaAux.length);
+
     // Una vez hayamos hecho todas las comprobaciones con los filtros lo igualamos a listaFiltrada,
     // una vez acabadas las comprobaciones insertaremos ese array
     setListaFiltrada(listaAux);
