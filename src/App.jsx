@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Error from './Components/Error/Error';
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header';
 import MealDetails from './Components/MealDetails/MealDetails';
@@ -37,11 +38,7 @@ function App() {
         informará al usuario de que la página no se ha encontrado */}
         <Route
           path="*"
-          element={(
-            <h1>
-              We couldn&apos;t find this resource sorry!!
-            </h1>
-          )}
+          element={<Error />}
         />
       </Routes>
     </div>
