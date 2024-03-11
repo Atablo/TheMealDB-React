@@ -39,7 +39,7 @@ function App() {
           path="*"
           element={(
             <h1>
-              Lo sentimos!! no hemos encontrado la ruta que has especificado
+              We couldn&apos;t find this resource sorry!!
             </h1>
           )}
         />
