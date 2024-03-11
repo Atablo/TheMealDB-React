@@ -98,12 +98,11 @@ export default function Meal({ recipe }) {
         {' '}
         {/* Agregamos la clase h-100 para establecer la altura al 100% */}
         <div className="row h-100">
-          <div className="col-sm-6">
+          <div className="col-sm-6 object-fit-cover">
             <img
               src={recipe.strMealThumb}
               className="h-100 card-img w-100"
               alt={recipe.strMeal}
-              style={{ objectFit: 'cover' }}
             />
           </div>
           <div className="col-sm-6 ps-0">
