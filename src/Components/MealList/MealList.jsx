@@ -2,7 +2,10 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import Meal from '../Meal/Meal';
 
+/* */
+
 export default function MealList({ mealsToPrint }) {
+  /* No  */
   return (
     <div className="container">
       <div className="row d-flex">
