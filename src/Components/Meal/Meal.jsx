@@ -86,7 +86,6 @@ export default function Meal({ recipe }) {
       Salad: 'card__category--bg-salad',
       Halloween: 'card__category--bg-halloween',
       Fusion: 'card__category--bga-fusion',
-
     };
 
     // Devolvemos el color para la categoria correspondiente y si no la hay el color será gris
@@ -94,47 +93,57 @@ export default function Meal({ recipe }) {
   };
 
   return (
-    // Envolvemos el contenido en un Link para redireccionar
-    // al detalle de la comida cuando se haga clic
     <Link to={`/meal/${recipe.idMeal}`} className="text-decoration-none">
-      <div className="card">
-        <div className="row">
-          <div className="col-sm-6">
+      <div className="card h-100">
+        {' '}
+        {/* Agregamos la clase h-100 para establecer la altura al 100% */}
+        <div className="row h-100">
+          <div className="col-sm-6 object-fit-cover">
             <img
               src={recipe.strMealThumb}
               className="h-100 card-img w-100"
               alt={recipe.strMeal}
-              style={{ objectFit: 'cover' }}
             />
           </div>
           <div className="col-sm-6 ps-0">
-            <div className="card-body h-100 ps-0">
+            <div className="card-body h-100 ps-0 d-flex flex-column justify-content-between">
+              {' '}
+              {/* Agregamos flex-column y justify-content-between
+              para distribuir el espacio verticalmente */}
               <div className="d-flex justify-content-around shadow p-3 rounded-5">
-                {/* Invocamos la función getColorForTag pasandole el nombre de la categoría */}
-                <div className={`w-50 d-flex justify-content-center rounded-4 align-items-center ${getColorForTag(recipe.strCategory)}`}>
-                  <strong className="align-items-center type">{recipe.strCategory}</strong>
+                <div
+                  className={`w-50 d-flex justify-content-center rounded-4 align-items-center ${getColorForTag(recipe.strCategory)}`}
+                >
+                  <strong className="align-items-center type">
+                    {recipe.strCategory}
+                  </strong>
                 </div>
                 <div className="w-50 d-flex justify-content-around align-items-center">
                   <div className="w-50 d-flex justify-content-center align-items-center d-none d-md-flex">
                     <strong className="fs-6 country">{recipe.strArea}</strong>
                   </div>
-                  {/* Llamamos la función de establishFlag
-                  pasandole el pais para mostrar su bandera */}
-                  <img src={`${establishFlag(recipe.strArea)}`} alt="" className="ml-2 mr-2 d-sm-flex countryFlag" />
+                  <img
+                    src={`${establishFlag(recipe.strArea)}`}
+                    alt=""
+                    className="ml-2 mr-2 d-sm-flex countryFlag"
+                  />
                 </div>
               </div>
               <h5 className="card-title mt-3 d-flex justify-content-center text-center">
                 {recipe.strMeal}
               </h5>
               <div className="row flex-wrap justify-content-center align-content-stretch align-items-end shadow rounded-3 m-2 mt-3">
-                <h5 className="m-0 bg-info-subtle rounded-2 p-2 text-center">Tags</h5>
+                <h5 className="m-0 bg-info-subtle rounded-2 p-2 text-center">
+                  Tags
+                </h5>
                 <div className="tags-container d-flex flex-wrap justify-content-center align-items-stretch text-center rounded-3 tags py-4">
-                  {/* Si la comida contiene etiquetas, lo
-                  separamos por elementos dividos por comas */}
-                  {recipe.strTags ? recipe.strTags.split(',').map((tag) => (
-                    // Y renderizamos cada etiqueta en un span quitando los espacios
-                    <span key={tag} className="badge bg-secondary m-1">{tag.trim()}</span>
-                  )) : 'No tags'}
+                  {recipe.strTags
+                    ? recipe.strTags.split(',').map((tag) => (
+                      <span key={tag} className="badge bg-secondary m-1">
+                        {tag.trim()}
+                      </span>
+                    ))
+                    : 'No tags'}
                 </div>
               </div>
             </div>
