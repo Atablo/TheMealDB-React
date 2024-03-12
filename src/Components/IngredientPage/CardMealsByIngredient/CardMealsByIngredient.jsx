@@ -129,7 +129,7 @@ export default function CardMealsByIngredient({ nameIngredient }) {
     <>
       {/* Operador ternario que si se cumple que si el nombre
       de ingrediente no está vacio y el array tiene elementos: */}
-      {nameIngredient && listaFiltrada.length > 0 ? (
+      {nameIngredient && mealList.length > 0 ? (
         <>
           <div className="container">
             {/* Incluimos el componente FiltersBox */}
