@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TheMealDB-React/static/css/main.16275959.css",
-    "main.js": "/TheMealDB-React/static/js/main.1c6142e5.js",
+    "main.js": "/TheMealDB-React/static/js/main.aef0de85.js",
     "static/media/pepperbg.jpg": "/TheMealDB-React/static/media/pepperbg.958e53a08bab97feaf25.jpg",
     "index.html": "/TheMealDB-React/index.html",
     "main.16275959.css.map": "/TheMealDB-React/static/css/main.16275959.css.map",
-    "main.1c6142e5.js.map": "/TheMealDB-React/static/js/main.1c6142e5.js.map"
+    "main.aef0de85.js.map": "/TheMealDB-React/static/js/main.aef0de85.js.map"
   },
   "entrypoints": [
     "static/css/main.16275959.css",
-    "static/js/main.1c6142e5.js"
+    "static/js/main.aef0de85.js"
   ]
 }
