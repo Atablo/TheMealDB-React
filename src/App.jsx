@@ -18,7 +18,7 @@ function App() {
       </header>
       <Routes>
         {/* La ruta raiz será el componente Home */}
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         {/* La ruta /searchByName incluirá el componente SearchByName */}
         <Route path="/searchByName" element={<SearchByName />} />
         {/* La ruta /searchByIngredient incluirá el componente SearchByIngredient */}
