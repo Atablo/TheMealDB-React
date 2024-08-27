@@ -56,7 +56,7 @@ El usuario puede hacer clic en las cartas de los platos,mostrando así todos los
 </br></br>
 
 
-[<h2>Funciones principales de nuestro código de javaScript</h2>
+<!--<h2>Funciones principales de nuestro código de javaScript</h2>
 
 **Métodos del archivo *`searchByName.js`***:
 <ul>
@@ -79,7 +79,7 @@ El usuario puede hacer clic en las cartas de los platos,mostrando así todos los
 <li>function validarNombre: función que sirve para comprobar que el dato introducido en el campo de búsqueda por nombre sea válido. </li>
 <li>function pintarMeals: función que sirve para pintar los array de platos que se han obtenido en formato JSON en los cards por pantalla. </li>
 <li>function printTags: función que sirve para pintar las etiquetas por pantalla a las distintas comidas en sus cards. </li>
-</ul>]
+</ul>-->
 
 </br>
 
