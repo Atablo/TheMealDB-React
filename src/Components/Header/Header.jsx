@@ -10,7 +10,7 @@ export default function Header() {
       <nav className="navbar navbar-expand-sm navbar-light bg-dark">
         <div className="container-lg">
           {/* Usamos el componente Link para navegar a la página principal */}
-          <Link to="/">
+          <Link to="/home">
             <img
               src="https://www.themealdb.com/images/logo.png"
               alt=""

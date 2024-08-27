@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Error from './Components/Error/Error';
 import Home from './Components/Home/Home';
 import Header from './Components/Header/Header';
@@ -17,6 +17,7 @@ function App() {
         <Header />
       </header>
       <Routes>
+        <Route path="/" render={() => <Navigate to="/home" />} />
         {/* La ruta raiz será el componente Home */}
         <Route path="/home" element={<Home />} />
         {/* La ruta /searchByName incluirá el componente SearchByName */}
