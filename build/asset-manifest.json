@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/TheMealDB-React/home/static/css/main.a39d07a1.css",
-    "main.js": "/TheMealDB-React/home/static/js/main.30ce3235.js",
-    "static/media/pepperbg.jpg": "/TheMealDB-React/home/static/media/pepperbg.958e53a08bab97feaf25.jpg",
-    "index.html": "/TheMealDB-React/home/index.html",
-    "main.a39d07a1.css.map": "/TheMealDB-React/home/static/css/main.a39d07a1.css.map",
-    "main.30ce3235.js.map": "/TheMealDB-React/home/static/js/main.30ce3235.js.map"
+    "main.css": "/TheMealDB-React/static/css/main.16275959.css",
+    "main.js": "/TheMealDB-React/static/js/main.5c28a4c2.js",
+    "static/media/pepperbg.jpg": "/TheMealDB-React/static/media/pepperbg.958e53a08bab97feaf25.jpg",
+    "index.html": "/TheMealDB-React/index.html",
+    "main.16275959.css.map": "/TheMealDB-React/static/css/main.16275959.css.map",
+    "main.5c28a4c2.js.map": "/TheMealDB-React/static/js/main.5c28a4c2.js.map"
   },
   "entrypoints": [
-    "static/css/main.a39d07a1.css",
-    "static/js/main.30ce3235.js"
+    "static/css/main.16275959.css",
+    "static/js/main.5c28a4c2.js"
   ]
 }
