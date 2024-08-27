@@ -1,8 +1,10 @@
 {
+  "homepage": "https://atablo.github.io/TheMealDB-React",
   "name": "the_mealdb_react",
   "homepage": "https://Atablo.github.io/TheMealDB-React/",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "proxy": "http://localhost:5000", 
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -52,6 +54,8 @@
   "devDependencies": {
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-react": "^7.33.2",
+    "gh-pages": "^6.1.1"
     "eslint-plugin-react": "^7.33.2",
     "gh-pages": "^6.1.1"
   }
