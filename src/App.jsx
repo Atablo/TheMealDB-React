@@ -22,7 +22,7 @@ function App() {
       </header>
       <Routes>
         {/* Redirige desde la raíz a la ruta /home */}
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/TheMealDB-React" />} />
         <Route path="/TheMealDB-React" element={<Navigate to="/home" />} />
         {/* La ruta raíz será el componente Home */}
         <Route path="/home" element={<Home />} />
