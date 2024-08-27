@@ -84,4 +84,4 @@ El usuario puede hacer clic en las cartas de los platos,mostrando así todos los
 </br>
 
 > [!NOTE]
-> Para acceder a la página haga click en [este enlace](https://atablo.github.io/TheMealDBApp-React/).
+> Para acceder a la página haga click en [este enlace](https://atablo.github.io/TheMealDB-React/).
